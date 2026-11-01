@@ -1,0 +1,356 @@
+{
+  "best_direct": {
+    "model": "LightGBM (L1)",
+    "safe_name": "LightGBM_L1",
+    "group": "improved",
+    "feature_set": "HIST",
+    "best_params": {
+      "colsample_bytree": 0.6399899663272012,
+      "learning_rate": 0.056704384225472484,
+      "min_child_samples": 146,
+      "n_estimators": 249,
+      "num_leaves": 54,
+      "reg_lambda": 3.1456753567266165,
+      "subsample": 0.71692347370813
+    },
+    "val": {
+      "mae": 17.80427564678099,
+      "mse": 2836.857465767618,
+      "rmse": 53.26215791504901,
+      "r2": -0.032901034779426075,
+      "adj_r2": -0.03305258083243845,
+      "median_ae": 5.279836129380042,
+      "explained_variance": 0.02228752354837371,
+      "max_error": 2969.051240331341,
+      "mean_bias_error": -12.311583821963236
+    },
+    "test": {
+      "mae": 18.556112316673975,
+      "mse": 3296.6145112871777,
+      "rmse": 57.41615200696732,
+      "r2": -0.02951758952811301,
+      "adj_r2": -0.02963809026538322,
+      "median_ae": 5.158060948354788,
+      "explained_variance": 0.024546314314163098,
+      "max_error": 2941.8892221034102,
+      "mean_bias_error": -13.15742485933172
+    },
+    "train_time_s": 7.579638481140137,
+    "tuning": {
+      "method": "RandomizedSearchCV",
+      "cv": "TimeSeriesSplit(n_splits=3)",
+      "scoring": "neg_mean_absolute_error",
+      "n_iter": 4,
+      "tuning_rows": 60000,
+      "best_cv_mae": 12.816130101979999,
+      "seconds": 23.949806690216064,
+      "random_state": 42
+    },
+    "target_transform": "none",
+    "fit_rows_used": 300000,
+    "refit_rows_used": 300000
+  },
+  "best_overall": {
+    "model": "LightGBM (L1)",
+    "safe_name": "LightGBM_L1",
+    "group": "improved",
+    "feature_set": "HIST",
+    "best_params": {
+      "colsample_bytree": 0.6399899663272012,
+      "learning_rate": 0.056704384225472484,
+      "min_child_samples": 146,
+      "n_estimators": 249,
+      "num_leaves": 54,
+      "reg_lambda": 3.1456753567266165,
+      "subsample": 0.71692347370813
+    },
+    "val": {
+      "mae": 17.80427564678099,
+      "mse": 2836.857465767618,
+      "rmse": 53.26215791504901,
+      "r2": -0.032901034779426075,
+      "adj_r2": -0.03305258083243845,
+      "median_ae": 5.279836129380042,
+      "explained_variance": 0.02228752354837371,
+      "max_error": 2969.051240331341,
+      "mean_bias_error": -12.311583821963236
+    },
+    "test": {
+      "mae": 18.556112316673975,
+      "mse": 3296.6145112871777,
+      "rmse": 57.41615200696732,
+      "r2": -0.02951758952811301,
+      "adj_r2": -0.02963809026538322,
+      "median_ae": 5.158060948354788,
+      "explained_variance": 0.024546314314163098,
+      "max_error": 2941.8892221034102,
+      "mean_bias_error": -13.15742485933172
+    },
+    "train_time_s": 7.579638481140137,
+    "tuning": {
+      "method": "RandomizedSearchCV",
+      "cv": "TimeSeriesSplit(n_splits=3)",
+      "scoring": "neg_mean_absolute_error",
+      "n_iter": 4,
+      "tuning_rows": 60000,
+      "best_cv_mae": 12.816130101979999,
+      "seconds": 23.949806690216064,
+      "random_state": 42
+    },
+    "target_transform": "none",
+    "fit_rows_used": 300000,
+    "refit_rows_used": 300000
+  },
+  "selection_rule": "lowest validation MAE among original replicas, improved direct models, ensembles and two-stage systems (baselines excluded from selection, reported for comparison)",
+  "baselines": {
+    "Training mean baseline": {
+      "val": {
+        "mae": 21.39062289107832,
+        "mse": 2771.7642375650066,
+        "rmse": 52.64754730816058,
+        "r2": -0.009200562133572676,
+        "adj_r2": -0.009202562773019896,
+        "median_ae": 12.009501457214355,
+        "explained_variance": 0.0,
+        "max_error": 2957.9904985427856,
+        "mean_bias_error": -5.026857601625033
+      },
+      "test": {
+        "mae": 22.653852907466455,
+        "mse": 3222.5156225227524,
+        "rmse": 56.76720551976072,
+        "r2": -0.006376846476030762,
+        "adj_r2": -0.006378438078877613,
+        "median_ae": 13.117517471313477,
+        "explained_variance": 0.0,
+        "max_error": 2928.8824825286865,
+        "mean_bias_error": -4.518769389794911
+      },
+      "val_constant": 8.009501645636597,
+      "test_constant": 9.117517488124593
+    },
+    "Training median baseline": {
+      "val": {
+        "mae": 18.78993380791807,
+        "mse": 3003.659752082008,
+        "rmse": 54.805654380565585,
+        "r2": -0.09363381963616813,
+        "adj_r2": -0.09363598765612613,
+        "median_ae": 4.0,
+        "explained_variance": 0.0,
+        "max_error": 2969.0,
+        "mean_bias_error": -16.036359058839388
+      },
+      "test": {
+        "mae": 19.53622771253159,
+        "mse": 3478.8623862496956,
+        "rmse": 58.98188184730711,
+        "r2": -0.08643276486499896,
+        "adj_r2": -0.08643448307770196,
+        "median_ae": 5.0,
+        "explained_variance": 0.0,
+        "max_error": 2941.0,
+        "mean_bias_error": -16.63628686110839
+      },
+      "val_constant": -3.0,
+      "test_constant": -3.0
+    }
+  },
+  "failed_models": [],
+  "two_stage": {
+    "stage1_model": "Soft Voting Ensemble (XGB+LGB+HGB)",
+    "stage1_threshold_f1": 0.24064671993255615,
+    "variants": {
+      "Two-stage (LightGBM L1, F1-optimal gate)": {
+        "model": "Two-stage (LightGBM L1, F1-optimal gate)",
+        "group": "two-stage",
+        "feature_set": "HIST",
+        "n_features": 74,
+        "gate_threshold": 0.24064671993255615,
+        "stage2_objective": "L1",
+        "val": {
+          "mae": 23.808215928644042,
+          "mse": 2888.1987208233204,
+          "rmse": 53.741964244185574,
+          "r2": -0.05159440803269266,
+          "adj_r2": -0.05174869675594995,
+          "median_ae": 7.505603692539239,
+          "explained_variance": -0.05128252095916408,
+          "max_error": 2968.762939542379,
+          "mean_bias_error": 0.9255248615603628
+        },
+        "test": {
+          "mae": 24.185454313143396,
+          "mse": 3292.358114816379,
+          "rmse": 57.379073840698915,
+          "r2": -0.028188336435375216,
+          "adj_r2": -0.02830868158911848,
+          "median_ae": 7.285825158694864,
+          "explained_variance": -0.028167938039248108,
+          "max_error": 2942.5362073190727,
+          "mean_bias_error": -0.25557313962246203
+        },
+        "train_time_s": 20.465229034423828,
+        "fit_rows_used": 300000,
+        "refit_rows_used": 300000,
+        "val_share_routed_delayed": 0.3740040956226794,
+        "test_share_routed_delayed": 0.3690713040837822
+      },
+      "Two-stage (LightGBM L1, MAE-optimal gate)": {
+        "model": "Two-stage (LightGBM L1, MAE-optimal gate)",
+        "group": "two-stage",
+        "feature_set": "HIST",
+        "n_features": 74,
+        "gate_threshold": 0.6403845548629761,
+        "stage2_objective": "L1",
+        "val": {
+          "mae": 18.151468431050954,
+          "mse": 2929.2688999691036,
+          "rmse": 54.12272073694285,
+          "r2": -0.06654807808843399,
+          "adj_r2": -0.06670456079698006,
+          "median_ae": 4.211047383076964,
+          "explained_variance": 0.009663377956181773,
+          "max_error": 2968.762939542379,
+          "mean_bias_error": -14.467701213848068
+        },
+        "test": {
+          "mae": 18.998075400249338,
+          "mse": 3399.374917517825,
+          "rmse": 58.30415866400805,
+          "r2": -0.06160919300776846,
+          "adj_r2": -0.061733449933295104,
+          "median_ae": 4.160496230100865,
+          "explained_variance": 0.011715076667143665,
+          "max_error": 2942.5362073190727,
+          "mean_bias_error": -15.322903640595063
+        },
+        "train_time_s": 20.465229034423828,
+        "fit_rows_used": 300000,
+        "refit_rows_used": 300000,
+        "val_share_routed_delayed": 0.02094595800103481,
+        "test_share_routed_delayed": 0.022239232270451333
+      },
+      "Two-stage (LightGBM L2, F1-optimal gate)": {
+        "model": "Two-stage (LightGBM L2, F1-optimal gate)",
+        "group": "two-stage",
+        "feature_set": "HIST",
+        "n_features": 74,
+        "gate_threshold": 0.24064671993255615,
+        "stage2_objective": "L2",
+        "val": {
+          "mae": 30.960878328295312,
+          "mse": 3618.2654756138013,
+          "rmse": 60.15201971350423,
+          "r2": -0.3174120303773875,
+          "adj_r2": -0.31760531955676896,
+          "median_ae": 8.144839439947674,
+          "explained_variance": -0.2744580504425349,
+          "max_error": 2969.1588944629057,
+          "mean_bias_error": 10.861532514028447
+        },
+        "test": {
+          "mae": 30.1833724253516,
+          "mse": 3846.6884619033467,
+          "rmse": 62.021677354803515,
+          "r2": -0.20130316098682943,
+          "adj_r2": -0.2014437685083097,
+          "median_ae": 7.853353318304444,
+          "explained_variance": -0.17833673984346854,
+          "max_error": 2941.8903052497153,
+          "mean_bias_error": 8.57558704798265
+        },
+        "train_time_s": 11.767730474472046,
+        "fit_rows_used": 300000,
+        "refit_rows_used": 300000,
+        "val_share_routed_delayed": 0.3740040956226794,
+        "test_share_routed_delayed": 0.3690713040837822
+      },
+      "Two-stage (LightGBM L2, MAE-optimal gate)": {
+        "model": "Two-stage (LightGBM L2, MAE-optimal gate)",
+        "group": "two-stage",
+        "feature_set": "HIST",
+        "n_features": 74,
+        "gate_threshold": 0.7518411874771118,
+        "stage2_objective": "L2",
+        "val": {
+          "mae": 18.10963359090731,
+          "mse": 2931.168654356736,
+          "rmse": 54.14026832549629,
+          "r2": -0.06723977948566362,
+          "adj_r2": -0.06739636367984403,
+          "median_ae": 4.465553587700549,
+          "explained_variance": 0.007863827092154385,
+          "max_error": 2969.1588944629057,
+          "mean_bias_error": -14.3621612391067
+        },
+        "test": {
+          "mae": 18.916124824821498,
+          "mse": 3403.2790863839464,
+          "rmse": 58.337630105995444,
+          "r2": -0.06282844703531643,
+          "adj_r2": -0.06295284666943846,
+          "median_ae": 4.487079221609072,
+          "explained_variance": 0.007752901695504688,
+          "max_error": 2941.8903052497153,
+          "mean_bias_error": -15.03357172621578
+        },
+        "train_time_s": 11.767730474472046,
+        "fit_rows_used": 300000,
+        "refit_rows_used": 300000,
+        "val_share_routed_delayed": 0.005068977343237365,
+        "test_share_routed_delayed": 0.006874835918052336
+      }
+    },
+    "oracle_diagnostic_not_a_model": {
+      "L1": {
+        "val_mae": 12.286083270805676,
+        "test_mae": 12.927586486124953
+      },
+      "L2": {
+        "val_mae": 13.887823032319924,
+        "test_mae": 14.35994098787163
+      }
+    },
+    "stage2_conditional_mae": {
+      "L1": {
+        "val_delayed_only_mae": 41.67004707836812,
+        "val_ontime_only_mae": 4.005958470612426,
+        "test_delayed_only_mae": 44.38743375950967,
+        "test_ontime_only_mae": 4.006343146706526
+      },
+      "L2": {
+        "val_delayed_only_mae": 48.59052180649993,
+        "val_ontime_only_mae": 4.10892871310723,
+        "test_delayed_only_mae": 50.44550992452757,
+        "test_ontime_only_mae": 4.126956106294649
+      }
+    }
+  },
+  "improvement": {
+    "best_direct_vs_mean_baseline_pct_test_mae": 18.088492970844314,
+    "best_direct_vs_median_baseline_pct_test_mae": 5.016912222152885,
+    "best_direct_vs_old_transformed_gbr_replica_pct_test_mae": 4.247089273358065,
+    "best_overall_vs_mean_baseline_pct_test_mae": 18.088492970844314,
+    "best_overall_vs_median_baseline_pct_test_mae": 5.016912222152885,
+    "best_overall_vs_old_transformed_gbr_replica_pct_test_mae": 4.247089273358065,
+    "old_transformed_gbr_replica_vs_mean_baseline_pct_test_mae": 14.455334665492387,
+    "old_transformed_gbr_replica_vs_median_baseline_pct_test_mae": 0.8039681957998466,
+    "validation_mae": {
+      "mean_baseline": 21.39062289107832,
+      "median_baseline": 18.78993380791807,
+      "old_transformed_gbr_replica": 18.58212501185242,
+      "best_direct": 17.80427564678099,
+      "best_overall": 17.80427564678099
+    },
+    "original_project_reported_on_15k_sample": {
+      "source": "hard-coded in src/model_evaluation.py (benchmark_sample.csv, 3,241 test rows)",
+      "model": "Advanced Transformed GBR",
+      "test_mae": 17.512,
+      "rmse": 47.43,
+      "r2": -0.0542,
+      "baseline_mean_mae": 20.8344,
+      "mae_improvement_pct_vs_mean": 15.95
+    }
+  }
+}

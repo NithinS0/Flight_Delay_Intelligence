@@ -1,0 +1,37 @@
+{
+  "model": "Linear Regression (OLS)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ohe",
+  "note": "Ordinary Least Squares linear baseline on HIST features",
+  "target_transform": "none",
+  "best_params": {},
+  "train_time_s": 11.359530210494995,
+  "fit_rows_used": 200000,
+  "val": {
+    "mae": 21.639207516144296,
+    "mse": 2660.756891758953,
+    "rmse": 51.582525061874904,
+    "r2": 0.031217260663232937,
+    "adj_r2": 0.031075121972855446,
+    "median_ae": 13.068496453551008,
+    "explained_variance": 0.032035745150283956,
+    "max_error": 2971.365478131123,
+    "mean_bias_error": -1.4993210137701123
+  },
+  "refit_time_s": 8.877960681915283,
+  "refit_rows_used": 200000,
+  "test": {
+    "mae": 22.743941527631584,
+    "mse": 3091.221057764013,
+    "rmse": 55.598750505420654,
+    "r2": 0.03462584381904499,
+    "adj_r2": 0.03451285080295219,
+    "median_ae": 13.735539143600453,
+    "explained_variance": 0.035130649596210484,
+    "max_error": 2929.1519887074,
+    "mean_bias_error": -1.2713916526244846
+  },
+  "total_seconds": 26.38636016845703
+}

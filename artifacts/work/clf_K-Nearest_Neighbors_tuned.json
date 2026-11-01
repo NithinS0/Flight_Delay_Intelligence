@@ -1,0 +1,98 @@
+{
+  "model": "K-Nearest Neighbors (tuned)",
+  "group": "improved",
+  "feature_set": "HIST-Top8",
+  "n_features": 5,
+  "encoding": "std",
+  "note": "KD-Tree KNN on top 8 standardized schedule & causal history predictors (12k fit sample due to O(N\u00b7log N) query cost)",
+  "best_params": {
+    "weights": "distance",
+    "n_neighbors": 55
+  },
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "average_precision",
+    "n_iter": 2,
+    "tuning_rows": 4000,
+    "best_cv_pr_auc": 0.23097987071851014
+  },
+  "train_time_s": 0.023383140563964844,
+  "fit_rows_used": 5000,
+  "refit_time_s": 0.060179710388183594,
+  "refit_rows_used": 5000,
+  "val": {
+    "accuracy": 0.5430149412914493,
+    "precision": 0.2853389894378708,
+    "recall": 0.7169355347755124,
+    "f1": 0.4082108365380172,
+    "specificity": 0.4940057528510154,
+    "balanced_accuracy": 0.6054706438132639,
+    "roc_auc": 0.6552464170812469,
+    "pr_auc": 0.3512939693862115,
+    "mcc": 0.17568429129429308,
+    "cohen_kappa": 0.1366932478227888,
+    "log_loss": 0.5033848675043052,
+    "confusion_matrix": [
+      [
+        194413,
+        199131
+      ],
+      [
+        31391,
+        79506
+      ]
+    ],
+    "threshold": 0.1918756905443925,
+    "predicted_delayed": 278637
+  },
+  "val_default_threshold": {
+    "f1": 0.08984613354882333,
+    "precision": 0.5250072275224054,
+    "recall": 0.04912666708747757,
+    "accuracy": 0.781187492689928
+  },
+  "test": {
+    "accuracy": 0.5685759742909288,
+    "precision": 0.29820459872584426,
+    "recall": 0.7040009162950184,
+    "f1": 0.41894862400954247,
+    "specificity": 0.5301727725415285,
+    "balanced_accuracy": 0.6170868444182734,
+    "roc_auc": 0.6686242201465658,
+    "pr_auc": 0.3637560624398188,
+    "mcc": 0.1944846186252676,
+    "cohen_kappa": 0.15743249517967417,
+    "log_loss": 0.4978595595227686,
+    "confusion_matrix": [
+      [
+        261170,
+        231443
+      ],
+      [
+        41349,
+        98344
+      ]
+    ],
+    "threshold": 0.1918756905443925,
+    "predicted_delayed": 329787
+  },
+  "test_default_threshold": {
+    "f1": 0.07676181475738235,
+    "precision": 0.5459106399091254,
+    "recall": 0.041283385710092844,
+    "accuracy": 0.780607806979532,
+    "balanced_accuracy": 0.515772759229665,
+    "confusion_matrix": [
+      [
+        487816,
+        4797
+      ],
+      [
+        133926,
+        5767
+      ]
+    ]
+  },
+  "total_seconds": 43.64276647567749
+}

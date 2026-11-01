@@ -5,6 +5,9 @@ __pycache__/
 
 # Large dataset files (GitHub 100MB limit)
 flight_data.csv
+*.parquet
+data/processed/
+*.npz
 *.zip
 *.tar.gz
 

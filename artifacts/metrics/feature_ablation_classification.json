@@ -1,0 +1,50 @@
+{
+  "description": "LightGBM fixed params, FIT-period training sample, VALIDATION-period scores",
+  "results": {
+    "CORE": {
+      "best_threshold": 0.1347329551768433,
+      "f1": 0.41486885265175116,
+      "precision": 0.3077429566870593,
+      "recall": 0.6364013453925715,
+      "roc_auc": 0.6630797619953397,
+      "pr_auc": 0.36702350043225823,
+      "balanced_accuracy": 0.6165002275109952,
+      "f1_at_0.5": 0.1276551503518874,
+      "recall_at_0.5": 0.0719676817226796,
+      "precision_at_0.5": 0.5643074312380683,
+      "n_features": 12,
+      "train_rows": 600000,
+      "train_time_s": 26.576313018798828
+    },
+    "ENH": {
+      "best_threshold": 0.14615436691639871,
+      "f1": 0.4213446654214457,
+      "precision": 0.30988050650972,
+      "recall": 0.6580430489553369,
+      "roc_auc": 0.6694721294987664,
+      "pr_auc": 0.36291124194122815,
+      "balanced_accuracy": 0.6225401653412059,
+      "f1_at_0.5": 0.05832312450205176,
+      "recall_at_0.5": 0.030695149553188996,
+      "precision_at_0.5": 0.5836762688614541,
+      "n_features": 16,
+      "train_rows": 600000,
+      "train_time_s": 26.15090274810791
+    },
+    "HIST": {
+      "best_threshold": 0.23850189860439464,
+      "f1": 0.4502644828672759,
+      "precision": 0.35834298184301655,
+      "recall": 0.6056160220745377,
+      "roc_auc": 0.7063080792938577,
+      "pr_auc": 0.423379091983681,
+      "balanced_accuracy": 0.6500169635305098,
+      "f1_at_0.5": 0.2252628967168013,
+      "recall_at_0.5": 0.13917418866155082,
+      "precision_at_0.5": 0.5905716690900742,
+      "n_features": 74,
+      "train_rows": 600000,
+      "train_time_s": 51.570948123931885
+    }
+  }
+}

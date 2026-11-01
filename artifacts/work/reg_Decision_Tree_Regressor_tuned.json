@@ -1,0 +1,50 @@
+{
+  "model": "Decision Tree Regressor (tuned)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ord",
+  "note": "Single recursive regression tree",
+  "target_transform": "none",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "neg_mean_absolute_error",
+    "n_iter": 4,
+    "tuning_rows": 50000,
+    "best_cv_mae": 17.621762322846156,
+    "seconds": 19.433441638946533,
+    "random_state": 42
+  },
+  "best_params": {
+    "max_depth": 12,
+    "min_samples_leaf": 229
+  },
+  "train_time_s": 14.134887933731079,
+  "fit_rows_used": 200000,
+  "val": {
+    "mae": 22.58520191821306,
+    "mse": 2712.7213405567754,
+    "rmse": 52.08379153399621,
+    "r2": 0.012296982297929193,
+    "adj_r2": 0.01215206764604948,
+    "median_ae": 13.285714285714286,
+    "explained_variance": 0.01232980855105803,
+    "max_error": 2967.2859375,
+    "mean_bias_error": -0.30026178265583575
+  },
+  "refit_time_s": 14.103575468063354,
+  "refit_rows_used": 200000,
+  "test": {
+    "mae": 23.708918365759754,
+    "mse": 3138.034577919502,
+    "rmse": 56.018162928817134,
+    "r2": 0.020006196219123806,
+    "adj_r2": 0.019891492034292857,
+    "median_ae": 13.782926829268293,
+    "explained_variance": 0.02000903617811034,
+    "max_error": 2925.2345679012346,
+    "mean_bias_error": 0.09536153465083178
+  },
+  "total_seconds": 50.03123950958252
+}

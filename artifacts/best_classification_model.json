@@ -1,0 +1,50 @@
+{
+  "model_name": "XGBoost Classifier",
+  "algorithm": "Extreme Gradient Boosting (XGBoost)",
+  "task": "Binary Flight Delay Classification (Delayed >= 15 min)",
+  "selection_reason": "Selected as the Champion Classifier based on highest validation delayed-class F1-score (0.4510) and highest validation PR-AUC (0.4213) with validation-optimized decision threshold (0.2372). On the untouched chronological test set (632,306 flights), it achieved F1 = 0.4522, ROC-AUC = 0.7068, Recall = 59.27%, Precision = 36.56%, and Accuracy = 68.28%.",
+  "decision_threshold": 0.2372,
+  "validation_metrics": {
+    "f1_score": 0.451,
+    "recall": 0.5916,
+    "precision": 0.3644,
+    "roc_auc": 0.7069,
+    "pr_auc": 0.4213,
+    "accuracy": 0.6834,
+    "balanced_accuracy": 0.6504
+  },
+  "test_metrics": {
+    "f1_score": 0.4522,
+    "recall": 0.5927,
+    "precision": 0.3656,
+    "roc_auc": 0.7068,
+    "pr_auc": 0.4106,
+    "accuracy": 0.6828,
+    "balanced_accuracy": 0.6505,
+    "specificity": 0.7083,
+    "mcc": 0.2605,
+    "log_loss": 0.4802,
+    "confusion_matrix": [
+      [
+        348925,
+        143688
+      ],
+      [
+        56892,
+        82801
+      ]
+    ]
+  },
+  "hyperparameters": {
+    "colsample_bytree": 0.9754210836063001,
+    "learning_rate": 0.03003240545011427,
+    "max_depth": 7,
+    "min_child_weight": 25,
+    "n_estimators": 207,
+    "reg_lambda": 4.286139574719072,
+    "scale_pos_weight": 1.0,
+    "subsample": 0.7873687420594125
+  },
+  "feature_count": 74,
+  "training_time_seconds": 9.76
+}

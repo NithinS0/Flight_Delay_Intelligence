@@ -1,0 +1,50 @@
+{
+  "model": "ElasticNet Regression (tuned)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ohe",
+  "note": "Combined L1+L2 regularized linear regression",
+  "target_transform": "none",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "neg_mean_absolute_error",
+    "n_iter": 3,
+    "tuning_rows": 50000,
+    "best_cv_mae": 16.69791254573757,
+    "seconds": 11.207847356796265,
+    "random_state": 42
+  },
+  "best_params": {
+    "alpha": 0.6173770394704572,
+    "l1_ratio": 0.5
+  },
+  "train_time_s": 8.554013729095459,
+  "fit_rows_used": 200000,
+  "val": {
+    "mae": 22.57788347190527,
+    "mse": 2665.205756091091,
+    "rmse": 51.62563080574504,
+    "r2": 0.029597427228628015,
+    "adj_r2": 0.029455050878150257,
+    "median_ae": 14.788113144043406,
+    "explained_variance": 0.02959946430077498,
+    "max_error": 2963.228358463138,
+    "mean_bias_error": 0.07479845148791371
+  },
+  "refit_time_s": 7.5493669509887695,
+  "refit_rows_used": 200000,
+  "test": {
+    "mae": 23.347495456913983,
+    "mse": 3098.352455671268,
+    "rmse": 55.66284627712877,
+    "r2": 0.03239874096601025,
+    "adj_r2": 0.03228548727682301,
+    "median_ae": 14.82326652650298,
+    "explained_variance": 0.032430669875224805,
+    "max_error": 2929.3386036524703,
+    "mean_bias_error": -0.31974903208359096
+  },
+  "total_seconds": 33.33396506309509
+}

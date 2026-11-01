@@ -1,0 +1,34 @@
+{
+  "model_name": "LightGBM Regressor",
+  "algorithm": "Light Gradient Boosting Machine (L1 / MAE Objective)",
+  "task": "Continuous Departure Delay Duration Estimation (Minutes)",
+  "selection_reason": "Selected as the Champion Regressor based on lowest validation Mean Absolute Error (17.8043 min). On the untouched chronological test set (632,306 flights), it achieved Test MAE = 18.5561 min, Test Median Absolute Error = 5.1581 min, and RMSE = 57.4162 min, representing an 18.09% error reduction over the training mean baseline.",
+  "loss_function": "L1 (Mean Absolute Error / Conditional Median)",
+  "validation_metrics": {
+    "mae": 17.8043,
+    "rmse": 53.2622,
+    "r2": -0.0329,
+    "median_ae": 5.2798,
+    "explained_variance": 0.0223
+  },
+  "test_metrics": {
+    "mae": 18.5561,
+    "rmse": 57.4162,
+    "r2": -0.0295,
+    "median_ae": 5.1581,
+    "explained_variance": 0.0245,
+    "max_error": 2941.9,
+    "mean_bias_error": -13.1574
+  },
+  "hyperparameters": {
+    "colsample_bytree": 0.6399899663272012,
+    "learning_rate": 0.056704384225472484,
+    "min_child_samples": 146,
+    "n_estimators": 249,
+    "num_leaves": 54,
+    "reg_lambda": 3.1456753567266165,
+    "subsample": 0.71692347370813
+  },
+  "feature_count": 74,
+  "training_time_seconds": 7.58
+}

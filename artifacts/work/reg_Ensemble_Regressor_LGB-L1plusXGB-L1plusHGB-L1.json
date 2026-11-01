@@ -1,0 +1,47 @@
+{
+  "model": "Ensemble Regressor (LGB-L1+XGB-L1+HGB-L1)",
+  "group": "ensemble",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ord",
+  "target_transform": "none (L1 loss blend)",
+  "note": "Convex L1-loss ensemble blending LightGBM-L1 (0.6), XGBoost-L1 (0.2), and HistGradientBoosting-L1 (0.2)",
+  "best_params": {
+    "weights_lgb_xgb_hgb": [
+      0.6,
+      0.2,
+      0.2
+    ]
+  },
+  "tuning": {
+    "method": "Validation MAE simplex grid search",
+    "best_val_mae": 17.822102463259537
+  },
+  "train_time_s": 32.72310256958008,
+  "fit_rows_used": 300000,
+  "refit_time_s": 33.07686161994934,
+  "refit_rows_used": 300000,
+  "val": {
+    "mae": 17.82210247114887,
+    "mse": 2838.674869969113,
+    "rmse": 53.27921611631606,
+    "r2": -0.033562752438134336,
+    "adj_r2": -0.033714395577601364,
+    "median_ae": 5.31341781616211,
+    "explained_variance": 0.02172713482617239,
+    "max_error": 2969.295816516876,
+    "mean_bias_error": -12.322880978758159
+  },
+  "test": {
+    "mae": 18.566852739757092,
+    "mse": 3303.0988925296674,
+    "rmse": 57.47259253356914,
+    "r2": -0.03154263204475938,
+    "adj_r2": -0.031663369804805,
+    "median_ae": 5.148037207126618,
+    "explained_variance": 0.02337030499840731,
+    "max_error": 2941.9875473976135,
+    "mean_bias_error": -13.260336158594557
+  },
+  "total_seconds": 32.72310256958008
+}

@@ -1,333 +1,153 @@
 import streamlit as st
 from src.app_helper import initialize_app_state
+from src.ui_theme import page_header, section, callout
 
 st.set_page_config(
     page_title="About the Project | Flight Delay Intelligence",
     page_icon="ℹ️",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 initialize_app_state()
 
-# Page Header
-st.markdown('<div class="aviation-badge">ℹ️ METHODOLOGY & ARCHITECTURE</div>', unsafe_allow_html=True)
-st.title("About the Flight Delay Intelligence Platform")
-st.markdown(
-    """
-    Complete scientific and architectural documentation of the Flight Delay Intelligence machine learning system, 
-    detailing research objectives, algorithmic foundations, chronological validation methodology, 
-    end-to-end system architecture, operational limitations, and roadmap enhancements.
-    """
+page_header(
+    "About the Flight Delay Intelligence System",
+    "Methodology, Statistical Theory and System Architecture",
+    "Comprehensive scientific and architectural documentation covering dataset governance, causal pre-departure feature engineering, "
+    "parametric and non-parametric statistical inference, chronological validation, and production machine learning models.",
+    eyebrow="Documentation",
 )
 
-st.markdown("---")
-
-# Section A, B, C: Overview, Problem Statement & Objectives
-col_intro1, col_intro2 = st.columns(2)
-
+col_intro1, col_intro2 = st.columns(2, gap="large")
 with col_intro1:
-    st.subheader("Section A – Project Introduction")
+    section("1. Project Introduction & Problem Statement")
     st.markdown(
         """
-        **Flight Delay Intelligence** is an end-to-end machine learning and statistical analysis platform that uses historical 
-        airline flight records to identify departure delay patterns and predict flight delays. The platform is designed 
-        specifically for aviation operational decision support, providing both **early-warning threshold alerts (Classification)** 
-        and **continuous delay duration forecasts (Regression)**.
-        """
-    )
-    
-    st.subheader("Section B – Problem Statement")
-    st.markdown(
-        """
-        Flight disruptions impose immense financial and operational costs on commercial aviation, disrupting passenger 
-        itineraries, escalating crew overtime costs, creating terminal gate congestion, and triggering cascading delays 
-        across airline networks. Predicting delays prior to gate pushback enables airlines and airport operations centers 
-        to proactively manage turnaround buffers, re-route connecting passenger luggage, and optimize gate assignments.
+        Commercial aviation networks operate on tightly coupled aircraft rotation schedules, crew duty-time limits, and airport slot capacities.
+        When a flight departs 15 or more minutes late (the **FAA / DOT formal delay threshold**), delays cascade across downstream legs, missed passenger connections, and terminal gate assignments.
+        
+        **Core Research Objective:** Predict both:
+        1. **Binary flight delay status ($\ge 15$ minutes, FAA Standard)** using classification.
+        2. **Continuous departure delay duration in minutes (`DEP_DELAY`)** using regression.
+
+        All models use **strictly pre-departure schedule and causal historical network state features** across **3,000,000 commercial flights** (`2,920,859` completed flights, Jan 2019 – Aug 2023), without leaking post-pushback or same-day future information.
         """
     )
 
 with col_intro2:
-    st.subheader("Section C – Project Objectives")
+    section("2. Dataset Governance & Causal Feature Set")
     st.markdown(
         """
-        - **Analyse Historical Flight Delay Patterns:** Perform comprehensive empirical data analysis on multi-year flight operations.
-        - **Understand Airline & Airport Performance:** Quantify operational delay variances across US commercial carriers and airport hubs.
-        - **Identify Time-Based Delay Trends:** Characterize diurnal hourly buildup, weekday variances, and seasonal monthly peaks.
-        - **Classify Binary Disruption Alerts:** Train classifiers to identify flights at risk of delay ≥ 15 minutes before gate departure.
-        - **Predict Departure Delay Duration:** Estimate numerical delay duration in minutes to support buffer planning.
-        - **Compare Machine Learning Algorithms:** Systematically benchmark multiple architectures (Trees, Ensembles, SVMs, Boosting).
-        - **Evaluate Models with Rigorous Metrics:** Measure operational recall, F1, MAE, and RMSE under strict zero target leakage.
+        - **Raw Dataset (`flight_data.csv`):** `3,000,000` flights $\\times$ `32` columns (`575.4 MB`), spanning `18` US carriers, `378` airports, and `7,785` routes (`2019-01-01` to `2023-08-31`).
+        - **Cleaned Population:** `2,920,859` non-cancelled flights (`516,401` delayed $\ge 15$ min = `17.68%`).
+        - **Natural Class Distribution:** The genuine operational class balance is strictly preserved (17.68% delayed flights) across training, validation, and testing partitions without synthetic data modification.
+        - **Zero-Leakage Historical Engine:** 58 strictly prior-day rolling delay statistics (`H_*`) computed strictly prior to flight date (`< FL_DATE`) across 1-day, 7-day, 30-day, and cumulative windows with Empirical-Bayes shrinkage ($m = 50$).
         """
     )
 
-st.markdown("---")
-
-# Section D: Algorithms Used
-st.subheader("Section D – Algorithms Used")
-st.markdown("Detailed breakdown of machine learning algorithms implemented for both operational objectives:")
-
-col_alg1, col_alg2 = st.columns(2)
+section("3. Selected Machine Learning Architecture Suites", "Selected strictly via chronological validation.")
+col_alg1, col_alg2, col_alg3 = st.columns(3, gap="large")
 
 with col_alg1:
-    st.markdown("#### 🎯 Classification Algorithms (Disruption Alerting)")
+    st.markdown("#### 📊 Statistical Inference Suite")
     st.markdown(
         """
-        1. **Decision Tree Classifier:**
-           - *Mechanism:* A non-parametric tree algorithm that creates recursive decision rules by maximizing Gini impurity reduction across scheduled pre-flight features.
-           - *Role:* Serves as the fast, highly interpretable baseline model.
-           
-        2. **Random Forest Classifier (Selected Champion):**
-           - *Mechanism:* An ensemble of 100 de-correlated decision trees trained with bootstrap aggregation (bagging) and dynamic `balanced_subsample` class weighting.
-           - *Role:* Delivers superior operational generalization and achieves 73.9% recall on delayed flights under severe class imbalance.
-           
-        3. **Support Vector Machine (LinearSVC):**
-           - *Mechanism:* A maximal-margin classification algorithm that computes a linear separating hyperplane in the scaled feature space.
-           - *Role:* Evaluates whether linear boundaries are sufficient for separating delayed and on-time flight operations.
+        - **Descriptive Statistics:** Mean, Median, Mode, 10% Trimmed Mean, Weighted Means, Variance, SD, IQR, MAD, MedAD, CV, Percentiles P1–P99, Skewness (`11.49`), Kurtosis (`243.90`).
+        - **Correlation & Collinearity:** Pearson $r$, Spearman $\\rho$, Kendall $\\tau$, and **Variance Inflation Factor (VIF)**.
+        - **14 Hypothesis Tests:** Student's $t$, Welch's $t$, Mann-Whitney $U$, Paired $t$, Wilcoxon Signed-Rank, Chi-Square, Fisher's Exact, Shapiro-Wilk, D'Agostino-Pearson $K^2$, KS-test with **Benjamini-Hochberg FDR** correction.
+        - **ANOVA Suite:** One-Way ANOVA, Welch's ANOVA, Kruskal-Wallis, **Cluster-Robust Block-Mean ANOVA**, Two-Way ANOVA (`DAY_PART × IS_WEEKEND`), and **Games-Howell Post-Hoc**.
         """
     )
 
 with col_alg2:
-    st.markdown("#### 📈 Regression Algorithms (Duration Estimation)")
+    st.markdown("#### 🎯 4 Best Classification Models")
     st.markdown(
         """
-        1. **Linear Regression (Ridge L2):**
-           - *Mechanism:* Fits a linear combination of normalized pre-flight features with L2 penalty to estimate continuous minutes.
-           - *Role:* Provides the parametric linear benchmark against a simple historical mean predictor.
-           
-        2. **Random Forest Regressor:**
-           - *Mechanism:* Combines predictions from multiple decision trees by averaging predictions at tree terminal leaves.
-           - *Role:* Captures non-linear feature interactions without target scaling.
-           
-        3. **Gradient Boosting Regressor:**
-           - *Mechanism:* Builds an ensemble of shallow trees sequentially, where each successive tree fits the negative gradient (residuals) of the preceding ensemble.
-           - *Role:* Minimizes prediction residuals through iterative gradient descent.
-           
-        4. **Advanced Transformed Gradient Boosting (Selected Champion):**
-           - *Mechanism:* Couples gradient boosting with advanced route interactions (`ROUTE`, `AIRLINE_ROUTE`, `DAY_PART`, `IS_WEEKEND`) and a **signed logarithmic target transformation** `sign(y)·log1p(|y|)`.
-           - *Role:* Compresses severe positive right-tail skewness, reducing test MAE by 15.95% over baseline.
+        Selected based on validation delayed-class F1-score with validation-optimized decision thresholds:
+        1. **XGBoost Classifier (Champion):** Extreme Gradient Boosting with validation-tuned threshold $\\tau^* = 0.2372$ (Test F1 = `0.4522`, ROC-AUC = `0.7068`, Recall = `59.27%`).
+        2. **HistGradientBoosting Classifier:** Scikit-learn histogram-binned boosting (Test F1 = `0.4525`, ROC-AUC = `0.7055`).
+        3. **LightGBM Classifier:** Highly efficient leaf-wise gradient boosting (Test F1 = `0.4511`, ROC-AUC = `0.7049`).
+        4. **Logistic Regression:** Regularized linear probabilistic baseline with OneHotEncoding and StandardScaling (Test F1 = `0.4505`, ROC-AUC = `0.7028`).
         """
     )
 
-st.markdown("---")
-
-# Section E: Validation Methodology & Zero Leakage
-st.subheader("Section E – Validation Methodology & Zero Target Leakage")
-st.markdown(
-    """
-    A foundational principle of this project is **strict methodological integrity** to ensure real-world operational validity:
-    
-    - **Chronological Data Splitting:** Flight operations occur sequentially in time. Random train-test splitting leaks future downstream weather and congestion patterns into past training folds. All models are trained strictly on historical flights (before 26 September 2022) and evaluated out-of-time (from 26 September 2022 onward).
-    - **TimeSeries Validation:** Hyperparameter tuning with `RandomizedSearchCV` employs rolling `TimeSeriesSplit` cross-validation on the training set, guaranteeing that validation folds strictly follow training folds.
-    - **Zero Target Leakage Guarantee:** All input features are restricted to scheduled pre-flight parameters available hours before departure (`AIRLINE`, `ORIGIN`, `DEST`, `CRS_DEP_TIME`, `DISTANCE`, `CRS_ELAPSED_TIME`, and cyclical temporal sine/cosine transforms). Actual departure times, arrival delays, taxi times, wheels on/off, and cancellation codes are strictly excluded.
-    - **Pipeline Preprocessing:** One-hot encoders and standard scalers are fitted solely on training splits, with `handle_unknown="ignore"` to safely handle unseen airports in production inference.
-    """
-)
-
-st.markdown("---")
-
-# Section F: Evaluation Metrics
-st.subheader("Section F – Evaluation Metrics")
-
-col_met1, col_met2 = st.columns(2)
-with col_met1:
-    st.markdown("#### Classification Metrics")
+with col_alg3:
+    st.markdown("#### 📈 4 Best Regression Models")
     st.markdown(
         """
-        - **Accuracy:** Overall proportion of correct predictions across all flights. *Caveat: Highly misleading in imbalanced datasets where predicting always on-time yields ~82% accuracy.*
-        - **Precision:** $\\frac{TP}{TP + FP}$ — The proportion of flights flagged as delayed that actually experienced a delay. Reflects the false alarm rate.
-        - **Recall (Sensitivity):** $\\frac{TP}{TP + FN}$ — The proportion of actual delayed flights successfully detected prior to gate departure. In aviation, high recall is critical for dispatch triage.
-        - **F1-Score:** The harmonic mean of precision and recall: $2 \\cdot \\frac{P \\cdot R}{P + R}$. The primary criterion for champion classifier selection.
+        Selected based on validation Mean Absolute Error (MAE) under robust L1 loss optimization:
+        1. **LightGBM Regressor (Champion):** L1-loss minimization predicting conditional median delay (Test MAE = `18.5561 min`, Median AE = `5.1581 min`, RMSE = `57.4162 min`).
+        2. **HistGradientBoosting Regressor:** L1-loss boosting with native missing-value support (Test MAE = `18.5962 min`, Median AE = `5.1490 min`).
+        3. **XGBoost Regressor:** Robust gradient boosting regressor (Test MAE = `18.6308 min`, Median AE = `5.1655 min`).
+        4. **Gradient Boosting Regressor:** Scikit-learn gradient boosting regressor with L1 loss (Test MAE = `18.7290 min`, Median AE = `5.3890 min`).
         """
     )
 
-with col_met2:
-    st.markdown("#### Regression Metrics")
-    st.markdown(
-        """
-        - **Mean Absolute Error (MAE):** $\\frac{1}{n} \\sum |y_i - \\hat{y}_i|$ — Average absolute deviation in minutes between predicted and actual departure delay. Primary operational metric.
-        - **Root Mean Squared Error (RMSE):** $\\sqrt{\\frac{1}{n} \\sum (y_i - \\hat{y}_i)^2}$ — Heavily weights extreme error outliers due to squaring.
-        - **Coefficient of Determination (R²):** $1 - \\frac{\\sum (y_i - \\hat{y}_i)^2}{\\sum (y_i - \\bar{y})^2}$ — Measures performance relative to a naive mean baseline. In heavy-tailed distributions with black-swan groundings, R² is near-zero or negative and must not be interpreted as an accuracy percentage.
-        """
-    )
-
-st.markdown("---")
-
-# ==========================================
-# SECTION G: SYSTEM ARCHITECTURE DIAGRAM
-# ==========================================
-st.subheader("Section G – System Architecture Diagram")
-st.markdown(
-    """
-    End-to-end technical data flow and modeling lifecycle diagram.
-    Rendered dynamically using Graphviz with color-differentiated functional subsystems.
-    """
-)
-
-# Graphviz architecture diagram definition
+section("4. End-to-End System Architecture Diagram")
 architecture_dot = """
 digraph FlightDelayIntelligence {
-    graph [rankdir=TB, bgcolor="transparent", nodesep=0.4, ranksep=0.5, fontname="Helvetica"];
-    node [shape=box, style="filled,rounded", fontname="Helvetica", fontsize=11, margin="0.2,0.12", penwidth=1.5];
-    edge [color="#64748b", penwidth=1.5, arrowsize=0.8];
+    graph [rankdir=TB, bgcolor="transparent", nodesep=0.35, ranksep=0.45, fontname="Helvetica"];
+    node [shape=box, style="filled,rounded", fontname="Helvetica", fontsize=10.5, margin="0.18,0.10", penwidth=1.4];
+    edge [color="#64748b", penwidth=1.4, arrowsize=0.75];
 
-    // Data Source (Light Blue)
-    data_source [label="FLIGHT DATA CSV\\n(flight_data.csv)", fillcolor="#e0f2fe", color="#0284c7", fontcolor="#0369a1"];
+    data_source [label="RAW DATASET: flight_data.csv\\n(3,000,000 Rows × 32 Columns | 2019–2023)", fillcolor="#e0f2fe", color="#0284c7", fontcolor="#0369a1"];
 
-    // Data Loading & Preprocessing (Light Cyan)
-    subgraph cluster_preprocessing {
-        label="Data Ingestion & Cleaning";
-        style="dashed";
-        color="#cbd5e1";
-        fontcolor="#64748b";
-        fontsize=10;
-
-        data_load [label="DATA LOADING\\n(Column Validation & Type Optimization)", fillcolor="#ecfeff", color="#06b6d4", fontcolor="#0e7490"];
-        data_clean [label="DATA PREPROCESSING\\n(Remove Cancellations, Retain Diversions, Preserve Extremes)", fillcolor="#ecfeff", color="#06b6d4", fontcolor="#0e7490"];
-        feat_eng [label="FEATURE ENGINEERING\\n(Cyclical Time, Routes, Day Parts, Target Definitions)", fillcolor="#ecfeff", color="#06b6d4", fontcolor="#0e7490"];
+    subgraph cluster_prep {
+        label="Data Preparation & Feature Engineering";
+        style="dashed"; color="#cbd5e1"; fontcolor="#475569"; fontsize=10;
+        clean [label="Cleaning & Quality Audit\\n(2,920,859 Flights | Natural Class Distribution | No Synthetic Sampling)", fillcolor="#ecfeff", color="#06b6d4", fontcolor="#0e7490"];
+        causal [label="Causal History Engine (< FL_DATE)\\n(58 Prior-Day Rolling Features + Empirical Bayes Shrinkage)", fillcolor="#ecfeff", color="#06b6d4", fontcolor="#0e7490"];
+        split [label="Chronological Split\\nFit: 1.78M | Validation: 504k | Test: 632k (Untouched Out-of-Time)", fillcolor="#f1f5f9", color="#64748b", fontcolor="#334155"];
     }
 
-    // Branch 1: Statistical Analysis & EDA (Light Green)
-    subgraph cluster_eda {
-        label="Exploratory Analysis Phase";
-        style="dashed";
-        color="#cbd5e1";
-        fontcolor="#64748b";
-        fontsize=10;
-
-        stat_analysis [label="STATISTICAL ANALYSIS\\n(Descriptive Stats, Skewness, Kurtosis, Outlier Audits)", fillcolor="#f0fdf4", color="#16a34a", fontcolor="#15803d"];
-        eda_vis [label="EDA & VISUALIZATIONS\\n(Airlines, Airports, Corridors, Diurnal & Monthly Trends)", fillcolor="#f0fdf4", color="#16a34a", fontcolor="#15803d"];
+    subgraph cluster_stats {
+        label="Statistical Intelligence Suite";
+        style="dashed"; color="#86efac"; fontcolor="#15803d"; fontsize=10;
+        desc [label="Descriptive, Tail & VIF Analysis\\n(Weighted Means, MAD, P1–P99, VIF)", fillcolor="#f0fdf4", color="#16a34a", fontcolor="#15803d"];
+        hyp [label="14 Hypothesis Tests + ANOVA Suite\\n(BH-FDR, Welch/Kruskal/Cluster ANOVA, Games-Howell)", fillcolor="#f0fdf4", color="#16a34a", fontcolor="#15803d"];
     }
 
-    // Branch 2: Chronological Splitting & Machine Learning
-    chrono_split [label="CHRONOLOGICAL DATA SPLIT\\n(Train: < 26 Sep 2022 | Test: ≥ 26 Sep 2022)", fillcolor="#f1f5f9", color="#64748b", fontcolor="#334155"];
-    train_val_test [label="TRAINING / VALIDATION / TEST FOLDS\\n(TimeSeriesSplit Cross-Validation | Zero Leakage)", fillcolor="#f1f5f9", color="#64748b", fontcolor="#334155"];
-
-    // Objective 1: Classification (Light Orange)
-    subgraph cluster_classification {
-        label="Classification Pipeline (Target: DELAYED ≥ 15m)";
-        style="dashed";
-        color="#fdba74";
-        fontcolor="#c2410c";
-        fontsize=10;
-
-        cls_branch [label="CLASSIFICATION PIPELINES\\n(OneHotEncoder + StandardScaler + Class Weights)", fillcolor="#fff7ed", color="#ea580c", fontcolor="#c2410c"];
-        dt_model [label="Decision Tree\\n(Baseline)", fillcolor="#fff7ed", color="#ea580c", fontcolor="#c2410c"];
-        rf_model [label="Random Forest\\n(Balanced Subsample)", fillcolor="#fff7ed", color="#ea580c", fontcolor="#c2410c"];
-        svm_model [label="Linear SVM\\n(Max Margin)", fillcolor="#fff7ed", color="#ea580c", fontcolor="#c2410c"];
-        cls_tuning [label="HYPERPARAMETER TUNING\\n(RandomizedSearchCV F1 Optimization)", fillcolor="#fff7ed", color="#ea580c", fontcolor="#c2410c"];
-        best_cls [label="BEST CLASSIFIER\\n(Random Forest: 73.9% Recall, F1 0.42)", fillcolor="#ffedd5", color="#c2410c", fontcolor="#9a3412", penwidth=2.2];
+    subgraph cluster_clf {
+        label="4 Best Classification Models";
+        style="dashed"; color="#93c5fd"; fontcolor="#1d4ed8"; fontsize=10;
+        clf_models [label="Top 4 Classifiers:\\n1. XGBoost Classifier (Champion)\\n2. HistGradientBoosting Classifier\\n3. LightGBM Classifier\\n4. Logistic Regression", fillcolor="#eff6ff", color="#2563eb", fontcolor="#1e3a8a"];
     }
 
-    // Objective 2: Regression (Light Purple)
-    subgraph cluster_regression {
-        label="Regression Pipeline (Target: DEP_DELAY Continuous Minutes)";
-        style="dashed";
-        color="#d8b4fe";
-        fontcolor="#7e22ce";
-        fontsize=10;
-
-        reg_branch [label="REGRESSION PIPELINES\\n(OneHotEncoder + StandardScaler + Target Transform)", fillcolor="#faf5ff", color="#9333ea", fontcolor="#7e22ce"];
-        lr_model [label="Linear Regression\\n(Ridge Baseline)", fillcolor="#faf5ff", color="#9333ea", fontcolor="#7e22ce"];
-        rf_reg_model [label="Random Forest\\nRegressor", fillcolor="#faf5ff", color="#9333ea", fontcolor="#7e22ce"];
-        gb_model [label="Gradient Boosting\\n(Transformed Target)", fillcolor="#faf5ff", color="#9333ea", fontcolor="#7e22ce"];
-        reg_tuning [label="HYPERPARAMETER TUNING\\n(RandomizedSearchCV MAE Optimization)", fillcolor="#faf5ff", color="#9333ea", fontcolor="#7e22ce"];
-        best_reg [label="BEST REGRESSOR\\n(Transformed GBR: MAE 17.51m, +15.95%)", fillcolor="#f3e8ff", color="#7e22ce", fontcolor="#6b21a8", penwidth=2.2];
+    subgraph cluster_reg {
+        label="4 Best Regression Models";
+        style="dashed"; color="#d8b4fe"; fontcolor="#7e22ce"; fontsize=10;
+        reg_models [label="Top 4 Regressors (L1 Loss):\\n1. LightGBM Regressor (Champion)\\n2. HistGradientBoosting Regressor\\n3. XGBoost Regressor\\n4. Gradient Boosting Regressor", fillcolor="#faf5ff", color="#9333ea", fontcolor="#6b21a8"];
     }
 
-    // Evaluation Subsystem (Light Yellow)
-    subgraph cluster_eval {
-        label="Evaluation & Synthesis";
-        style="dashed";
-        color="#fde047";
-        fontcolor="#a16207";
-        fontsize=10;
+    ui [label="Streamlit Professional Analytics Dashboard\\n(6 Interactive Modules, Clean Light Theme, Real Inference Simulators)", fillcolor="#f8fafc", color="#334155", fontcolor="#0f172a", penwidth=2.0];
 
-        model_eval [label="MODEL EVALUATION\\n(Out-of-Time Test Set: Confusion Matrix, MAE vs Baseline)", fillcolor="#fefce8", color="#ca8a04", fontcolor="#854d0e"];
-        comp_dash [label="COMPARISON DASHBOARD\\n(Multi-Model Benchmarks, Metric Visualizations)", fillcolor="#fefce8", color="#ca8a04", fontcolor="#854d0e"];
-    }
-
-    // Interactive Streamlit UI (Light Grey)
-    streamlit_app [label="STREAMLIT MULTIPAGE DASHBOARD\\n(Light Theme, Interactive Charts, Real-Time Prediction Widgets)", fillcolor="#f8fafc", color="#475569", fontcolor="#0f172a", penwidth=2.5];
-
-    // Pipeline Connections
-    data_source -> data_load;
-    data_load -> data_clean;
-    data_clean -> feat_eng;
-
-    feat_eng -> stat_analysis;
-    stat_analysis -> eda_vis;
-
-    feat_eng -> chrono_split;
-    chrono_split -> train_val_test;
-
-    train_val_test -> cls_branch;
-    cls_branch -> dt_model;
-    cls_branch -> rf_model;
-    cls_branch -> svm_model;
-    dt_model -> cls_tuning;
-    rf_model -> cls_tuning;
-    svm_model -> cls_tuning;
-    cls_tuning -> best_cls;
-
-    train_val_test -> reg_branch;
-    reg_branch -> lr_model;
-    reg_branch -> rf_reg_model;
-    reg_branch -> gb_model;
-    lr_model -> reg_tuning;
-    rf_reg_model -> reg_tuning;
-    gb_model -> reg_tuning;
-    reg_tuning -> best_reg;
-
-    best_cls -> model_eval;
-    best_reg -> model_eval;
-
-    model_eval -> comp_dash;
-    eda_vis -> streamlit_app;
-    comp_dash -> streamlit_app;
+    data_source -> clean -> causal -> split;
+    causal -> desc -> hyp -> ui;
+    split -> clf_models -> ui;
+    split -> reg_models -> ui;
 }
 """
-
 st.graphviz_chart(architecture_dot)
 
-st.markdown(
-    """
-    #### Architecture Stage Explanations:
-    - **1. Data Ingestion & Preprocessing (Light Cyan):** Automatically locates `flight_data.csv`, validates columns, excludes cancelled flights, retains non-cancelled diverted flights, and preserves genuine extreme delay observations.
-    - **2. Feature Engineering (Light Cyan):** Creates cyclical scheduled-time sine/cosine vectors, date components (`YEAR`, `MONTH`, `DAY_OF_WEEK`), interaction features (`ROUTE`, `AIRLINE_ROUTE`, `DAY_PART`), and binary targets (`DELAYED ≥ 15m`).
-    - **3. Statistical Analysis & EDA (Light Green):** Conducts comprehensive descriptive statistical analysis (Mean, Median, Mode, Std, Variance, Min, Max, Q1–Q3, IQR, Skewness, Kurtosis) and macro visualizations.
-    - **4. Chronological Splitting (Grey):** Partitions dataset temporally into historical training data and future untouched test data to prevent target leakage.
-    - **5. Classification Subsystem (Light Orange):** Evaluates Decision Tree, Random Forest, and Linear SVM with class weighting, tuning hyperparameters via validation F1 to select the champion classifier.
-    - **6. Regression Subsystem (Light Purple):** Evaluates Ridge Linear Regression, Random Forest Regressor, and Gradient Boosting with signed logarithmic target transformation, selecting the champion based on lowest validation MAE.
-    - **7. Model Evaluation (Light Yellow):** Measures final test set metrics, confusion matrices, and percentage MAE improvement against baseline mean prediction.
-    - **8. Streamlit Multipage UI (Light Grey):** Delivers a responsive, modern light-themed dashboard with real-time prediction widgets.
-    """
-)
-
-st.markdown("---")
-
-# Section H & I: Limitations & Future Enhancements
-col_fut1, col_fut2 = st.columns(2)
-
+col_fut1, col_fut2 = st.columns(2, gap="large")
 with col_fut1:
-    st.subheader("Section H – Project Limitations")
+    section("5. Methodological Limitations")
     st.markdown(
         """
-        - **Black-Swan Outliers:** Extreme mechanical groundings, national airspace ground stops, and severe convective weather clusters cannot be predicted using scheduled timetable information alone.
-        - **Classification False Alarm Trade-off:** Optimizing for high disruption recall (73.9%) requires setting conservative decision thresholds that yield false positives (1,269 in test set).
-        - **Negative Regression R²:** Severe right-tail delay variance makes squared error metrics penalize scheduled-only forecasts, resulting in negative R² despite 15.95% MAE improvements.
-        - **Stationarity Shifts:** Airline route networks, fleet compositions, and air traffic control procedures change over time, requiring continuous periodic re-training.
+        - **Unobserved Day-of-Operation Shocks:** Pre-departure timetable and prior-day historical features cannot observe real-time convective thunderstorm cells or immediate FAA ground stops occurring right before pushback.
+        - **Clustering & Hub Correlation:** Flights departing the same hub on the same afternoon share airport capacity constraints; we account for this by incorporating cluster-robust statistical tests.
+        - **Extreme Delay Outliers:** Genuine long delays (> 500 minutes) are retained in the dataset; optimizing L1 loss (MAE) targets the conditional median delay, preventing single extreme delays from destabilizing the regression predictions.
         """
     )
 
 with col_fut2:
-    st.subheader("Section I – Future Enhancements")
+    section("6. Future Scope & Operational Enhancements")
     st.markdown(
         """
-        - **Real-Time Weather Data Integration:** Incorporate METAR/TAF weather feeds, convective storm outlooks, and wind shear warnings.
-        - **Air Traffic & Airport Congestion:** Integrate live FAA National Airspace System (NAS) ground delay program status and runway acceptance rates.
-        - **Aircraft Turnaround Tail-Tracking:** Track inbound aircraft tail numbers to compute physical inbound aircraft delay propagation.
-        - **Deep Sequential Ensembles:** Implement LightGBM, XGBoost, CatBoost, and Temporal Convolutional Networks (TCN) for sequential schedule representations.
-        - **Continuous Model Monitoring:** Implement MLOps drift monitoring (Evidently AI) to detect concept drift in seasonal delay distributions.
+        - **Real-Time METAR / TAF Weather Feeds:** Ingest surface observations (ceiling, visibility, gusts) at $T - 2\\text{ hours}$ before scheduled pushback.
+        - **Tail-Number Rotation Graphs:** Trace inbound aircraft rotations (`TAIL_NUM`) to predict upstream delay propagation into downstream flight legs.
+        - **Live Air Traffic Control Advisories:** Stream FAA System Command Center ground delay program (GDP) status directly into feature inputs.
+        - **Conformal Prediction Intervals:** Provide calibrated 90% confidence bands ($[\\hat{q}_{0.05}, \\hat{q}_{0.95}]$) alongside point duration estimates.
         """
     )

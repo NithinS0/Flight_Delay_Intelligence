@@ -1,0 +1,60 @@
+{
+  "Training mean baseline": {
+    "model": "Training mean baseline",
+    "group": "baseline",
+    "val_constant_minutes": 8.009501645636597,
+    "test_constant_minutes": 9.117517488124593,
+    "val": {
+      "mae": 21.39062289107832,
+      "mse": 2771.7642375650066,
+      "rmse": 52.64754730816058,
+      "r2": -0.009200562133572676,
+      "adj_r2": -0.009202562773019896,
+      "median_ae": 12.009501457214355,
+      "explained_variance": 0.0,
+      "max_error": 2957.9904985427856,
+      "mean_bias_error": -5.026857601625033
+    },
+    "test": {
+      "mae": 22.653852907466455,
+      "mse": 3222.5156225227524,
+      "rmse": 56.76720551976072,
+      "r2": -0.006376846476030762,
+      "adj_r2": -0.006378438078877613,
+      "median_ae": 13.117517471313477,
+      "explained_variance": 0.0,
+      "max_error": 2928.8824825286865,
+      "mean_bias_error": -4.518769389794911
+    },
+    "train_time_s": 0.0
+  },
+  "Training median baseline": {
+    "model": "Training median baseline",
+    "group": "baseline",
+    "val_constant_minutes": -3.0,
+    "test_constant_minutes": -3.0,
+    "val": {
+      "mae": 18.78993380791807,
+      "mse": 3003.659752082008,
+      "rmse": 54.805654380565585,
+      "r2": -0.09363381963616813,
+      "adj_r2": -0.09363598765612613,
+      "median_ae": 4.0,
+      "explained_variance": 0.0,
+      "max_error": 2969.0,
+      "mean_bias_error": -16.036359058839388
+    },
+    "test": {
+      "mae": 19.53622771253159,
+      "mse": 3478.8623862496956,
+      "rmse": 58.98188184730711,
+      "r2": -0.08643276486499896,
+      "adj_r2": -0.08643448307770196,
+      "median_ae": 5.0,
+      "explained_variance": 0.0,
+      "max_error": 2941.0,
+      "mean_bias_error": -16.63628686110839
+    },
+    "train_time_s": 0.0
+  }
+}

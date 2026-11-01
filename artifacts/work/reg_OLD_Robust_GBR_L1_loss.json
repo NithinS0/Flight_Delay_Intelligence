@@ -1,0 +1,37 @@
+{
+  "model": "OLD Robust GBR (L1 loss)",
+  "group": "original-replica",
+  "feature_set": "ADV",
+  "n_features": 16,
+  "encoding": "ohe",
+  "note": "original implementation not in repository; reconstructed as L1-loss GBR on the advanced features",
+  "target_transform": "none",
+  "best_params": {},
+  "train_time_s": 11.210619449615479,
+  "fit_rows_used": 100000,
+  "val": {
+    "mae": 18.55807657511357,
+    "mse": 2988.5656665657925,
+    "rmse": 54.66777539433805,
+    "r2": -0.08813805654729934,
+    "adj_r2": -0.0881725715761339,
+    "median_ae": 4.2125563621521,
+    "explained_variance": 0.0030405395417058,
+    "max_error": 2969.97758102417,
+    "mean_bias_error": -15.824713356476078
+  },
+  "refit_time_s": 9.90756368637085,
+  "refit_rows_used": 100000,
+  "test": {
+    "mae": 19.16879477293442,
+    "mse": 3439.480034162624,
+    "rmse": 58.647080354972694,
+    "r2": -0.07413383696432718,
+    "adj_r2": -0.07416101779681283,
+    "median_ae": 4.610508918762207,
+    "explained_variance": 0.003106213043636785,
+    "max_error": 2941.665248632431,
+    "mean_bias_error": -15.726731442804224
+  },
+  "total_seconds": 35.90755295753479
+}

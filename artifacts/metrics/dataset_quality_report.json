@@ -1,0 +1,165 @@
+{
+  "raw_dataset": {
+    "filename": "flight_data.csv",
+    "file_size_mb": 614.1,
+    "raw_rows": 3000000,
+    "raw_columns": 32,
+    "date_range": [
+      "2019-01-01",
+      "2023-08-31"
+    ],
+    "full_row_duplicates": 0,
+    "key_subset_duplicates": 72,
+    "cancelled_flights_excluded": 79140,
+    "diverted_flights_retained": 7056,
+    "physical_anomalies_excluded": 1,
+    "raw_missing_columns": {
+      "DEP_TIME": {
+        "count": 77615,
+        "pct": 2.587
+      },
+      "DEP_DELAY": {
+        "count": 77644,
+        "pct": 2.588
+      },
+      "TAXI_OUT": {
+        "count": 78806,
+        "pct": 2.627
+      },
+      "WHEELS_OFF": {
+        "count": 78806,
+        "pct": 2.627
+      },
+      "WHEELS_ON": {
+        "count": 79944,
+        "pct": 2.665
+      },
+      "TAXI_IN": {
+        "count": 79944,
+        "pct": 2.665
+      },
+      "ARR_TIME": {
+        "count": 79942,
+        "pct": 2.665
+      },
+      "ARR_DELAY": {
+        "count": 86198,
+        "pct": 2.873
+      },
+      "CANCELLATION_CODE": {
+        "count": 2920860,
+        "pct": 97.362
+      },
+      "CRS_ELAPSED_TIME": {
+        "count": 14,
+        "pct": 0.0
+      },
+      "ELAPSED_TIME": {
+        "count": 86198,
+        "pct": 2.873
+      },
+      "AIR_TIME": {
+        "count": 86198,
+        "pct": 2.873
+      },
+      "DELAY_DUE_CARRIER": {
+        "count": 2466137,
+        "pct": 82.205
+      },
+      "DELAY_DUE_WEATHER": {
+        "count": 2466137,
+        "pct": 82.205
+      },
+      "DELAY_DUE_NAS": {
+        "count": 2466137,
+        "pct": 82.205
+      },
+      "DELAY_DUE_SECURITY": {
+        "count": 2466137,
+        "pct": 82.205
+      },
+      "DELAY_DUE_LATE_AIRCRAFT": {
+        "count": 2466137,
+        "pct": 82.205
+      }
+    },
+    "delay_reason_columns_policy": "Preserved as NaN in raw audit; excluded from pre-departure model inputs (post-flight leakage)."
+  },
+  "cleaned_dataset": {
+    "cleaned_rows": 2920859,
+    "total_model_table_columns": 34,
+    "core_categorical_features": 3,
+    "engineered_categorical_features": 6,
+    "core_numerical_features": 9,
+    "calendar_engineered_features": 4,
+    "causal_historical_features": 58,
+    "total_hist_feature_set_predictors": 74,
+    "missing_values_after_cleaning": 0,
+    "unique_airlines": 18,
+    "unique_origins": 380,
+    "unique_destinations": 380,
+    "unique_routes": 7771,
+    "unique_airline_routes": 17785
+  },
+  "outlier_audit": {
+    "iqr": 12.0,
+    "tukey_1_5_iqr_fences": [
+      -24.0,
+      24.0
+    ],
+    "tukey_lower_outliers": 1189,
+    "tukey_upper_outliers": 390939,
+    "tukey_total_outliers": 392128,
+    "tukey_outlier_pct": 13.425091728152575,
+    "outer_3_0_iqr_fences": [
+      -42.0,
+      42.0
+    ],
+    "outer_fence_outliers": 253315,
+    "outer_fence_pct": 8.672619938175721,
+    "zscore_gt_3_count": 43178,
+    "zscore_gt_3_pct": 1.4782637573398785,
+    "zscore_gt_5_count": 15288,
+    "zscore_gt_5_pct": 0.5234076687714128,
+    "delays_gt_60m_count": 180990,
+    "delays_gt_60m_pct": 6.196464807099556,
+    "delays_gt_120m_count": 70628,
+    "delays_gt_120m_pct": 2.418055784274421,
+    "delays_gt_300m_count": 10693,
+    "delays_gt_300m_pct": 0.36609093420805316,
+    "policy": "All genuine extreme departure delays (up to +2,966 min) are preserved in target evaluation. Historical rolling averages clip inputs to [-30, +180] min solely to prevent single black-swan events from distorting rolling carrier priors."
+  },
+  "leakage_verification": {
+    "rows_checked": 150,
+    "max_abs_error": {
+      "H_AIRLINE_RATE_ALL": 1.3529002196310813e-08,
+      "H_ORIGIN_RATE_7D": 1.3214308425268939e-08,
+      "H_ORIGIN_N_1D": 0.0,
+      "H_GLOBAL_RATE_30D": 1.4473493348265976e-08,
+      "H_ORIGIN_MEAN_30D": 9.13458563900349e-07
+    },
+    "passes_tolerance_1e-4": true,
+    "first_day_rows": 1834,
+    "first_day_hist_counts_all_zero": true,
+    "max_abs_corr_history_feature_with_target": 0.23279589866142578,
+    "feature_with_max_corr": "H_ORIGINHOUR_RATE_30D",
+    "split_ranges": {
+      "fit": {
+        "min": "2019-01-01",
+        "max": "2021-12-24",
+        "rows": 1784112
+      },
+      "test": {
+        "min": "2022-09-26",
+        "max": "2023-08-31",
+        "rows": 632306
+      },
+      "val": {
+        "min": "2021-12-25",
+        "max": "2022-09-25",
+        "rows": 504441
+      }
+    },
+    "splits_chronological_no_overlap": true
+  }
+}

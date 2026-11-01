@@ -1,0 +1,55 @@
+{
+  "model": "LightGBM (L2, signed-log target)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ord",
+  "note": "",
+  "target_transform": "signed-log",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "neg_mean_absolute_error",
+    "n_iter": 4,
+    "tuning_rows": 60000,
+    "best_cv_mae": 13.318086667839147,
+    "seconds": 24.804507732391357,
+    "random_state": 42
+  },
+  "best_params": {
+    "colsample_bytree": 0.7727780074568463,
+    "learning_rate": 0.04492195705620086,
+    "min_child_samples": 88,
+    "n_estimators": 319,
+    "num_leaves": 122,
+    "reg_lambda": 17.403662685854034,
+    "subsample": 0.7698314021290912
+  },
+  "train_time_s": 9.676923990249634,
+  "fit_rows_used": 300000,
+  "val": {
+    "mae": 18.18508566966871,
+    "mse": 2845.756013158414,
+    "rmse": 53.345627872942075,
+    "r2": -0.03614099974731699,
+    "adj_r2": -0.036293021164266914,
+    "median_ae": 5.949588619364791,
+    "explained_variance": 0.015485753835036697,
+    "max_error": 2967.3678359206156,
+    "mean_bias_error": -11.907670531796557
+  },
+  "refit_time_s": 10.550334930419922,
+  "refit_rows_used": 300000,
+  "test": {
+    "mae": 18.971845034487195,
+    "mse": 3319.6375474789515,
+    "rmse": 57.61629585003666,
+    "r2": -0.03670757811871672,
+    "adj_r2": -0.03682892041414476,
+    "median_ae": 5.988398527503725,
+    "explained_variance": 0.013988318343647332,
+    "max_error": 2939.557526660913,
+    "mean_bias_error": -12.741002503938534
+  },
+  "total_seconds": 53.79233980178833
+}

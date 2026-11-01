@@ -1,0 +1,49 @@
+{
+  "model": "Lasso Regression (tuned)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ohe",
+  "note": "L1-penalized sparse linear regression",
+  "target_transform": "none",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "neg_mean_absolute_error",
+    "n_iter": 3,
+    "tuning_rows": 50000,
+    "best_cv_mae": 16.488463998036774,
+    "seconds": 9.864205360412598,
+    "random_state": 42
+  },
+  "best_params": {
+    "alpha": 1.5702970884055387
+  },
+  "train_time_s": 10.266092300415039,
+  "fit_rows_used": 200000,
+  "val": {
+    "mae": 22.32429911668788,
+    "mse": 2678.881423370685,
+    "rmse": 51.757911698316086,
+    "r2": 0.024618110835455176,
+    "adj_r2": 0.024475003925397365,
+    "median_ae": 14.333747307493889,
+    "explained_variance": 0.024904921076604247,
+    "max_error": 2961.1518910349714,
+    "mean_bias_error": -0.8875375350479893
+  },
+  "refit_time_s": 6.732157230377197,
+  "refit_rows_used": 200000,
+  "test": {
+    "mae": 23.247314913055188,
+    "mse": 3113.3072790706597,
+    "rmse": 55.79701855001448,
+    "r2": 0.027728418219676088,
+    "adj_r2": 0.027614617888702564,
+    "median_ae": 14.63792579661968,
+    "explained_variance": 0.02802392818997368,
+    "max_error": 2929.0521510344074,
+    "mean_bias_error": -0.9727545404753083
+  },
+  "total_seconds": 31.988200426101685
+}

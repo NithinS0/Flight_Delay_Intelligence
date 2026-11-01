@@ -1,0 +1,33 @@
+{
+  "rows_checked": 150,
+  "max_abs_error": {
+    "H_AIRLINE_RATE_ALL": 1.3529002196310813e-08,
+    "H_ORIGIN_RATE_7D": 1.3214308425268939e-08,
+    "H_ORIGIN_N_1D": 0.0,
+    "H_GLOBAL_RATE_30D": 1.4473493348265976e-08,
+    "H_ORIGIN_MEAN_30D": 9.13458563900349e-07
+  },
+  "passes_tolerance_1e-4": true,
+  "first_day_rows": 1834,
+  "first_day_hist_counts_all_zero": true,
+  "max_abs_corr_history_feature_with_target": 0.23279589866142578,
+  "feature_with_max_corr": "H_ORIGINHOUR_RATE_30D",
+  "split_ranges": {
+    "fit": {
+      "min": "2019-01-01",
+      "max": "2021-12-24",
+      "rows": 1784112
+    },
+    "test": {
+      "min": "2022-09-26",
+      "max": "2023-08-31",
+      "rows": 632306
+    },
+    "val": {
+      "min": "2021-12-25",
+      "max": "2022-09-25",
+      "rows": 504441
+    }
+  },
+  "splits_chronological_no_overlap": true
+}

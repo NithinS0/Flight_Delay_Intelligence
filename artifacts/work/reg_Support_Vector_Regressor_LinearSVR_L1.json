@@ -1,0 +1,49 @@
+{
+  "model": "Support Vector Regressor (LinearSVR, L1)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ohe",
+  "note": "Linear Support Vector Regression optimizing L1 epsilon-insensitive loss",
+  "target_transform": "none",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "neg_mean_absolute_error",
+    "n_iter": 3,
+    "tuning_rows": 40000,
+    "best_cv_mae": 12.864154344251636,
+    "seconds": 11.398189544677734,
+    "random_state": 42
+  },
+  "best_params": {
+    "C": 0.10253509690168493
+  },
+  "train_time_s": 2.907729148864746,
+  "fit_rows_used": 150000,
+  "val": {
+    "mae": 18.042410084129774,
+    "mse": 2902.058131458975,
+    "rmse": 53.87075395294718,
+    "r2": -0.056640625461571004,
+    "adj_r2": -0.0567956545600512,
+    "median_ae": 4.8889026363072805,
+    "explained_variance": 0.0130720758247993,
+    "max_error": 2971.832195696807,
+    "mean_bias_error": -13.837108850910377
+  },
+  "refit_time_s": 3.0191798210144043,
+  "refit_rows_used": 150000,
+  "test": {
+    "mae": 18.774044280435263,
+    "mse": 3357.64709323765,
+    "rmse": 57.94520768137474,
+    "r2": -0.048577784900423415,
+    "adj_r2": -0.04870051655401619,
+    "median_ae": 5.1181472019983225,
+    "explained_variance": 0.014440414990084527,
+    "max_error": 2942.178494106242,
+    "mean_bias_error": -14.205292942545688
+  },
+  "total_seconds": 22.677345275878906
+}

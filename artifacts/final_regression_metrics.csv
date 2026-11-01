@@ -1,0 +1,5 @@
+Model,MAE (minutes),RMSE (minutes),R² Score,Median Absolute Error,Validation MAE (minutes),Validation RMSE (minutes),Validation R² Score,Validation Median Absolute Error,Explained Variance,Max Error,Mean Bias Error
+LightGBM Regressor,18.5561,57.4162,-0.0295,5.1581,17.8043,53.2622,-0.0329,5.2798,0.0245,2941.9,-13.1574
+HistGradientBoosting Regressor,18.5962,57.5214,-0.0333,5.149,17.8662,53.2781,-0.0335,5.3947,0.0223,2942.2,-13.3376
+XGBoost Regressor,18.6308,57.6149,-0.0367,5.1655,17.8945,53.3533,-0.0364,5.3771,0.0202,2942.1,-13.4918
+Gradient Boosting Regressor,18.729,57.641,-0.0376,5.389,17.984,53.5618,-0.0446,5.31,0.0183,2940.3,-13.3789

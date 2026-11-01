@@ -1,0 +1,105 @@
+{
+  "model": "Gradient Boosting (sklearn, tuned)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ord",
+  "note": "",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "average_precision (PR-AUC)",
+    "n_iter": 3,
+    "tuning_rows": 30000,
+    "best_cv_pr_auc": 0.2644276454622793,
+    "seconds": 107.96636724472046,
+    "random_state": 42
+  },
+  "best_params": {
+    "learning_rate": 0.04309650003533369,
+    "max_depth": 4,
+    "max_features": 0.4,
+    "min_samples_leaf": 159,
+    "n_estimators": 143,
+    "subsample": 0.9976634677873653
+  },
+  "train_time_s": 139.98496770858765,
+  "fit_rows_used": 80000,
+  "val": {
+    "accuracy": 0.6793381188285647,
+    "precision": 0.3597082611526112,
+    "recall": 0.5879329467884614,
+    "f1": 0.4463384162516472,
+    "specificity": 0.7050952371272335,
+    "balanced_accuracy": 0.6465140919578475,
+    "roc_auc": 0.7021589682760878,
+    "pr_auc": 0.4161562942240989,
+    "mcc": 0.2529257778158415,
+    "cohen_kappa": 0.23865305570374296,
+    "log_loss": 0.48011402014941307,
+    "confusion_matrix": [
+      [
+        277486,
+        116058
+      ],
+      [
+        45697,
+        65200
+      ]
+    ],
+    "threshold": 0.2396376388024261,
+    "predicted_delayed": 181258
+  },
+  "val_default_threshold": {
+    "f1": 0.23775575675482996,
+    "precision": 0.5676982262622136,
+    "recall": 0.15036475287879744,
+    "accuracy": 0.7880426055772628
+  },
+  "refit_time_s": 145.09094834327698,
+  "refit_rows_used": 80000,
+  "test": {
+    "accuracy": 0.6862579194250885,
+    "precision": 0.36651139093092655,
+    "recall": 0.5767504456200382,
+    "f1": 0.4482013367935313,
+    "specificity": 0.7173115610022472,
+    "balanced_accuracy": 0.6470310033111427,
+    "roc_auc": 0.7032228753998436,
+    "pr_auc": 0.40866561316807715,
+    "mcc": 0.2561764004485285,
+    "cohen_kappa": 0.24393799954693574,
+    "log_loss": 0.48178991514417807,
+    "confusion_matrix": [
+      [
+        353357,
+        139256
+      ],
+      [
+        59125,
+        80568
+      ]
+    ],
+    "threshold": 0.2396376388024261,
+    "predicted_delayed": 219824
+  },
+  "test_default_threshold": {
+    "f1": 0.20526958279062432,
+    "precision": 0.5575580657443838,
+    "recall": 0.1257901254894662,
+    "accuracy": 0.7848114678652425,
+    "balanced_accuracy": 0.5487419648768327,
+    "confusion_matrix": [
+      [
+        478669,
+        13944
+      ],
+      [
+        122121,
+        17572
+      ]
+    ]
+  },
+  "test_best_possible_f1_oracle": null,
+  "total_seconds": 412.49903988838196
+}

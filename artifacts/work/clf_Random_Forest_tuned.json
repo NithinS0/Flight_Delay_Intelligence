@@ -1,0 +1,104 @@
+{
+  "model": "Random Forest (tuned)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ord",
+  "note": "",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "average_precision (PR-AUC)",
+    "n_iter": 4,
+    "tuning_rows": 40000,
+    "best_cv_pr_auc": 0.262019452332272,
+    "seconds": 26.2566978931427,
+    "random_state": 42
+  },
+  "best_params": {
+    "class_weight": "balanced_subsample",
+    "max_depth": 20,
+    "max_features": "sqrt",
+    "min_samples_leaf": 107,
+    "n_estimators": 100
+  },
+  "train_time_s": 12.084704875946045,
+  "fit_rows_used": 150000,
+  "val": {
+    "accuracy": 0.6710378418883477,
+    "precision": 0.35411045676453595,
+    "recall": 0.6023968186695763,
+    "f1": 0.446029043565348,
+    "specificity": 0.690380237025593,
+    "balanced_accuracy": 0.6463885278475847,
+    "roc_auc": 0.7022420289168506,
+    "pr_auc": 0.41548538670513313,
+    "mcc": 0.25059010397969017,
+    "cohen_kappa": 0.23388707357893435,
+    "log_loss": 0.7051704694151345,
+    "confusion_matrix": [
+      [
+        271695,
+        121849
+      ],
+      [
+        44093,
+        66804
+      ]
+    ],
+    "threshold": 0.583667817437403,
+    "predicted_delayed": 188653
+  },
+  "val_default_threshold": {
+    "f1": 0.4346741631516157,
+    "precision": 0.30428649764065857,
+    "recall": 0.7605886543369073,
+    "accuracy": 0.5650650918541514
+  },
+  "refit_time_s": 16.353990077972412,
+  "refit_rows_used": 150000,
+  "test": {
+    "accuracy": 0.6804964684820324,
+    "precision": 0.36201835593513,
+    "recall": 0.5853407114171791,
+    "f1": 0.4473574789364263,
+    "specificity": 0.7074803141614209,
+    "balanced_accuracy": 0.6464105127893001,
+    "roc_auc": 0.7020383986399705,
+    "pr_auc": 0.4016737106685766,
+    "mcc": 0.2535236244053509,
+    "cohen_kappa": 0.2398256829532468,
+    "log_loss": 0.6919860608344321,
+    "confusion_matrix": [
+      [
+        348514,
+        144099
+      ],
+      [
+        57925,
+        81768
+      ]
+    ],
+    "threshold": 0.583667817437403,
+    "predicted_delayed": 225867
+  },
+  "test_default_threshold": {
+    "f1": 0.4420444438784066,
+    "precision": 0.3141832972258598,
+    "recall": 0.7453916803275755,
+    "accuracy": 0.5842851404225169,
+    "balanced_accuracy": 0.6419954729383999,
+    "confusion_matrix": [
+      [
+        265321,
+        227292
+      ],
+      [
+        35567,
+        104126
+      ]
+    ]
+  },
+  "test_best_possible_f1_oracle": null,
+  "total_seconds": 66.69349026679993
+}

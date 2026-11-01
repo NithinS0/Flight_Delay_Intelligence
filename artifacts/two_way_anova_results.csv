@@ -1,0 +1,5 @@
+Source,SS,df,MS,F_Statistic,P_Value,Partial_Eta_Sq,Interpretation
+Main Effect: Day Part (A),57326013.07,3,19108671.02,7966.459,0.0,0.00812,Dominant driver: departure delays escalate sharply from Night/Morning to Afternoon/Evening.
+Main Effect: Weekend vs Weekday (B),443226.93,1,443226.93,184.783,4.390881245444267e-42,6e-05,Statistically significant due to sample size (N=2.92M) but tiny effect size compared to Day Part.
+Interaction: Day Part × Weekend (A × B),84491.81,3,28163.94,11.742,1.0921122892700448e-07,1e-05,Significant interaction: weekend flights show steeper afternoon/evening delay accumulation than weekdays.
+Residual (Within-Cell Error),7006071780.13,2920851,2398.64,,,,"Unexplained individual flight variance (local weather, aircraft turnaround shocks)."

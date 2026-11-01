@@ -1,0 +1,22 @@
+Factor,Group_A,Group_B,Mean_A,Mean_B,Mean_Diff_A_minus_B,SE_Diff,Welch_df,Games_Howell_q,Adjusted_P_Value,CI95_Lower,CI95_Upper,Cohens_d,Significant_0_05
+Day Part (All 4 Windows),Afternoon,Evening,11.878,16.393,-4.515,0.0876,1204050.3,72.858,0.0,-4.74,-4.29,-0.0845,True
+Day Part (All 4 Windows),Afternoon,Morning,11.878,5.287,6.591,0.0625,2054070.3,149.246,0.0,6.431,6.752,0.1433,True
+Day Part (All 4 Windows),Afternoon,Night,11.878,4.9,6.978,0.1867,82433.0,52.848,2.9383273592031856e-11,6.498,7.457,0.1389,True
+Day Part (All 4 Windows),Evening,Morning,16.393,5.287,11.106,0.0823,1010338.3,190.764,0.0,10.894,11.317,0.2307,True
+Day Part (All 4 Windows),Evening,Night,16.393,4.9,11.492,0.1943,96354.9,83.658,8.561962250297483e-11,10.993,11.991,0.2009,True
+Day Part (All 4 Windows),Morning,Night,5.287,4.9,0.386,0.1843,78245.3,2.966,0.15405029373440016,-0.087,0.86,0.0092,False
+Top 6 Airlines by Volume,American Airlines Inc.,Delta Air Lines Inc.,12.569,8.097,4.472,0.126,679438.3,50.214,0.0,4.113,4.831,0.082,True
+Top 6 Airlines by Volume,American Airlines Inc.,Republic Airline,12.569,5.743,6.826,0.1553,356112.4,62.176,0.0,6.384,7.269,0.1177,True
+Top 6 Airlines by Volume,American Airlines Inc.,SkyWest Airlines Inc.,12.569,9.442,3.127,0.1451,706244.8,30.479,0.0,2.713,3.54,0.0512,True
+Top 6 Airlines by Volume,American Airlines Inc.,Southwest Airlines Co.,12.569,10.808,1.761,0.1102,488553.0,22.604,0.0,1.447,2.075,0.0383,True
+Top 6 Airlines by Volume,American Airlines Inc.,United Air Lines Inc.,12.569,11.185,1.384,0.1438,600489.5,13.612,0.0,0.974,1.794,0.0239,True
+Top 6 Airlines by Volume,Delta Air Lines Inc.,Republic Airline,8.097,5.743,2.354,0.1377,254942.8,24.181,0.0,1.961,2.746,0.0522,True
+Top 6 Airlines by Volume,Delta Air Lines Inc.,SkyWest Airlines Inc.,8.097,9.442,-1.346,0.1261,624949.7,15.096,0.0,-1.705,-0.986,-0.0256,True
+Top 6 Airlines by Volume,Delta Air Lines Inc.,Southwest Airlines Co.,8.097,10.808,-2.711,0.0836,621668.9,45.889,0.0,-2.95,-2.473,-0.0727,True
+Top 6 Airlines by Volume,Delta Air Lines Inc.,United Air Lines Inc.,8.097,11.185,-3.088,0.1246,492816.1,35.053,0.0,-3.443,-2.733,-0.065,True
+Top 6 Airlines by Volume,Republic Airline,SkyWest Airlines Inc.,5.743,9.442,-3.699,0.1553,349691.0,33.678,0.0,-4.142,-3.257,-0.0669,True
+Top 6 Airlines by Volume,Republic Airline,Southwest Airlines Co.,5.743,10.808,-5.065,0.1234,172974.2,58.057,0.0,-5.417,-4.714,-0.1527,True
+Top 6 Airlines by Volume,Republic Airline,United Air Lines Inc.,5.743,11.185,-5.442,0.1542,322653.9,49.924,0.0,-5.881,-5.003,-0.1135,True
+Top 6 Airlines by Volume,SkyWest Airlines Inc.,Southwest Airlines Co.,9.442,10.808,-1.366,0.1103,441435.3,17.512,0.0,-1.68,-1.051,-0.0314,True
+Top 6 Airlines by Volume,SkyWest Airlines Inc.,United Air Lines Inc.,9.442,11.185,-1.743,0.1439,574872.8,17.126,0.0,-2.153,-1.332,-0.0312,True
+Top 6 Airlines by Volume,Southwest Airlines Co.,United Air Lines Inc.,10.808,11.185,-0.377,0.1086,331239.0,4.906,0.006914271865393062,-0.686,-0.067,-0.01,True

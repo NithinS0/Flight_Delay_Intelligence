@@ -1,0 +1,55 @@
+{
+  "model": "LightGBM (Quantile 0.5)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ord",
+  "note": "",
+  "target_transform": "none",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "neg_mean_absolute_error",
+    "n_iter": 3,
+    "tuning_rows": 60000,
+    "best_cv_mae": 12.831229920764597,
+    "seconds": 13.616998672485352,
+    "random_state": 42
+  },
+  "best_params": {
+    "colsample_bytree": 0.6399899663272012,
+    "learning_rate": 0.056704384225472484,
+    "min_child_samples": 146,
+    "n_estimators": 249,
+    "num_leaves": 54,
+    "reg_lambda": 3.1456753567266165,
+    "subsample": 0.71692347370813
+  },
+  "train_time_s": 6.622975826263428,
+  "fit_rows_used": 300000,
+  "val": {
+    "mae": 17.814002389685562,
+    "mse": 2834.3771715071734,
+    "rmse": 53.23886899162278,
+    "r2": -0.03199795856249077,
+    "adj_r2": -0.03214937211719837,
+    "median_ae": 5.331233913241716,
+    "explained_variance": 0.02252640825868979,
+    "max_error": 2968.969239406613,
+    "mean_bias_error": -12.23727492511961
+  },
+  "refit_time_s": 8.625874042510986,
+  "refit_rows_used": 300000,
+  "test": {
+    "mae": 18.557836602215964,
+    "mse": 3299.3590621748676,
+    "rmse": 57.44004754676712,
+    "r2": -0.03037470018043753,
+    "adj_r2": -0.030495301238932626,
+    "median_ae": 5.12216650485934,
+    "explained_variance": 0.024225563301641606,
+    "max_error": 2942.900353933327,
+    "mean_bias_error": -13.22253017283633
+  },
+  "total_seconds": 36.39986538887024
+}

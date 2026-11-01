@@ -1,0 +1,131 @@
+{
+  "project_title": "Flight Delay Prediction and Statistical Intelligence System",
+  "active_model_counts": {
+    "classification_models": 4,
+    "regression_models": 4
+  },
+  "selection_protocol": {
+    "split_type": "Strict chronological out-of-time (Fit: 2019-2021 [1.78M flights], Val: 2022 [504k flights], Test: Sep 2022-Aug 2023 [632k flights])",
+    "leakage_policy": "Zero post-departure leakage. Only pre-departure timetable and strictly prior-day (< FL_DATE) causal history features used.",
+    "class_balancing_policy": "No synthetic sampling, SMOTE, or artificial resampling. Evaluated entirely on genuine operational class distribution.",
+    "classification_primary_metric": "Validation delayed-class F1-score with validation-optimized decision threshold",
+    "classification_supporting_metrics": [
+      "Recall",
+      "Precision",
+      "ROC-AUC",
+      "PR-AUC",
+      "Balanced Accuracy"
+    ],
+    "regression_primary_metric": "Validation Mean Absolute Error (MAE)",
+    "regression_supporting_metrics": [
+      "RMSE",
+      "R2 Score",
+      "Median Absolute Error",
+      "Explained Variance"
+    ]
+  },
+  "selected_classification_models": [
+    {
+      "rank": 1,
+      "name": "XGBoost Classifier",
+      "status": "Champion (Selected)",
+      "val_f1": 0.451,
+      "test_f1": 0.4522,
+      "test_roc_auc": 0.7068,
+      "test_pr_auc": 0.4106,
+      "test_recall": 0.5927,
+      "test_precision": 0.3656,
+      "test_accuracy": 0.6828,
+      "threshold": 0.2372,
+      "selection_rationale": "Highest validation delayed-class F1 score (0.4510) and validation PR-AUC (0.4213) among all candidate classifiers."
+    },
+    {
+      "rank": 2,
+      "name": "HistGradientBoosting Classifier",
+      "status": "Selected Candidate",
+      "val_f1": 0.4484,
+      "test_f1": 0.4525,
+      "test_roc_auc": 0.7055,
+      "test_pr_auc": 0.409,
+      "test_recall": 0.5989,
+      "test_precision": 0.3636,
+      "test_accuracy": 0.6798,
+      "threshold": 0.233,
+      "selection_rationale": "Second-highest validation F1 (0.4484) with highest delayed-class recall (62.30% val, 59.89% test) and native categorical handling."
+    },
+    {
+      "rank": 3,
+      "name": "LightGBM Classifier",
+      "status": "Selected Candidate",
+      "val_f1": 0.4479,
+      "test_f1": 0.4511,
+      "test_roc_auc": 0.7049,
+      "test_pr_auc": 0.4095,
+      "test_recall": 0.5806,
+      "test_precision": 0.3688,
+      "test_accuracy": 0.6879,
+      "threshold": 0.2361,
+      "selection_rationale": "Third-highest validation F1 (0.4479) with highest test precision (36.88%) and overall accuracy (68.79%)."
+    },
+    {
+      "rank": 4,
+      "name": "Logistic Regression",
+      "status": "Selected Baseline Candidate",
+      "val_f1": 0.4472,
+      "test_f1": 0.4505,
+      "test_roc_auc": 0.7028,
+      "test_pr_auc": 0.4061,
+      "test_recall": 0.6192,
+      "test_precision": 0.354,
+      "test_accuracy": 0.6662,
+      "threshold": 0.5868,
+      "selection_rationale": "Strongest linear model (val F1 = 0.4472), exceeding Random Forest and Extra Trees; provides an interpretable probabilistic benchmark."
+    }
+  ],
+  "selected_regression_models": [
+    {
+      "rank": 1,
+      "name": "LightGBM Regressor",
+      "status": "Champion (Selected)",
+      "val_mae": 17.8043,
+      "test_mae": 18.5561,
+      "test_rmse": 57.4162,
+      "test_r2": -0.0295,
+      "test_median_ae": 5.1581,
+      "selection_rationale": "Lowest validation MAE (17.8043 min) and lowest test MAE (18.5561 min), cutting error by 18.09% over the training mean baseline."
+    },
+    {
+      "rank": 2,
+      "name": "HistGradientBoosting Regressor",
+      "status": "Selected Candidate",
+      "val_mae": 17.8662,
+      "test_mae": 18.5962,
+      "test_rmse": 57.5214,
+      "test_r2": -0.0333,
+      "test_median_ae": 5.149,
+      "selection_rationale": "Second-lowest validation MAE (17.8662 min) with lowest test Median Absolute Error (5.1490 min)."
+    },
+    {
+      "rank": 3,
+      "name": "XGBoost Regressor",
+      "status": "Selected Candidate",
+      "val_mae": 17.8945,
+      "test_mae": 18.6308,
+      "test_rmse": 57.6149,
+      "test_r2": -0.0367,
+      "test_median_ae": 5.1655,
+      "selection_rationale": "Third-lowest validation MAE (17.8945 min), highly competitive across all error percentiles."
+    },
+    {
+      "rank": 4,
+      "name": "Gradient Boosting Regressor",
+      "status": "Selected Candidate",
+      "val_mae": 17.984,
+      "test_mae": 18.729,
+      "test_rmse": 57.641,
+      "test_r2": -0.0376,
+      "test_median_ae": 5.389,
+      "selection_rationale": "Fourth-lowest validation MAE (17.9840 min), providing a pure Scikit-Learn tree boosting baseline."
+    }
+  ]
+}

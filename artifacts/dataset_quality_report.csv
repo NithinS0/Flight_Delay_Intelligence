@@ -1,0 +1,35 @@
+Column,Role,Dtype,Non_Null_Count,Missing_Count,Missing_Pct,Unique_Values,Mean_or_Top,Std_or_Freq,Min,Max
+FL_DATE,Date/Time Index,datetime64[ns],2920859,0,0.0,1704,2019-07-25 00:00:00,2367,2019-01-01 00:00:00,2023-08-31 00:00:00
+AIRLINE,Categorical Predictor,object,2920859,0,0.0,18,Southwest Airlines Co.,557005,-,-
+ORIGIN,Categorical Predictor,object,2920859,0,0.0,380,ATL,151095,-,-
+DEST,Categorical Predictor,object,2920859,0,0.0,380,ATL,151042,-,-
+ROUTE,Categorical Predictor,object,2920859,0,0.0,7771,SFO_LAX,5219,-,-
+AIRLINE_ROUTE,Categorical Predictor,object,2920859,0,0.0,17785,Hawaiian Airlines Inc._OGG_HNL,3529,-,-
+CRS_DEP_TIME,Numerical Predictor,int64,2920859,0,0.0,1383,1326.116,485.480,1.00,2359.00
+DEP_DELAY,Target (Continuous),float32,2920859,0,0.0,1512,10.096,49.178,-90.00,2966.00
+DELAYED,Target (Binary),int8,2920859,0,0.0,2,0.182,0.386,-,-
+DIVERTED,Post-Departure Diagnostic (Not Model Input),float64,2920859,0,0.0,2,0.002,0.049,-,-
+CRS_ELAPSED_TIME,Numerical Predictor,float64,2920859,0,0.0,640,142.458,71.743,1.00,705.00
+DISTANCE,Numerical Predictor,float64,2920859,0,0.0,1726,811.086,589.514,29.00,5812.00
+YEAR,Numerical Predictor,int16,2920859,0,0.0,5,2020.877,1.418,2019.00,2023.00
+MONTH,Numerical Predictor,int8,2920859,0,0.0,12,6.271,3.379,1.00,12.00
+DAY_OF_WEEK,Numerical Predictor,int8,2920859,0,0.0,7,2.976,2.002,0.00,6.00
+SCHEDULED_HOUR,Numerical Predictor,int8,2920859,0,0.0,24,12.992,4.831,0.00,23.00
+SCHEDULED_MINUTE,Numerical Predictor,int8,2920859,0,0.0,60,26.950,18.163,0.00,59.00
+TIME_SIN,Numerical Predictor,float32,2920859,0,0.0,1179,-0.119,0.736,-1.00,1.00
+TIME_COS,Numerical Predictor,float32,2920859,0,0.0,1278,-0.356,0.563,-1.00,1.00
+DAY_PART,Categorical Predictor,object,2920859,0,0.0,4,Morning,1152624,-,-
+IS_WEEKEND,Numerical Predictor,int8,2920859,0,0.0,2,0.274,0.446,-,-
+HOLIDAY_DIST,Numerical Predictor,int8,2920859,0,0.0,8,5.668,2.127,0.00,7.00
+DOY_SIN,Numerical Predictor,float32,2920859,0,0.0,366,0.038,0.700,-1.00,1.00
+DOY_COS,Numerical Predictor,float32,2920859,0,0.0,366,-0.032,0.713,-1.00,1.00
+SPLIT,Split Indicator,object,2920859,0,0.0,3,fit,1784112,-,-
+H_AIRLINE_RATE_ALL,Causal Historical Feature,float32,2920859,0,0.0,28272,0.171,0.036,0.06,0.41
+H_AIRLINE_MEAN_ALL,Causal Historical Feature,float32,2920859,0,0.0,28295,7.728,2.626,-1.51,24.94
+H_ORIGIN_RATE_30D,Causal Historical Feature,float32,2920859,0,0.0,305366,0.183,0.077,0.00,0.61
+H_ORIGIN_MEAN_30D,Causal Historical Feature,float32,2920859,0,0.0,331597,8.518,6.071,-9.91,53.70
+H_DEST_RATE_30D,Causal Historical Feature,float32,2920859,0,0.0,305626,0.182,0.072,0.01,0.57
+H_ROUTE_RATE_ALL,Causal Historical Feature,float32,2920859,0,0.0,1894667,0.171,0.051,0.03,0.50
+H_ORIGINHOUR_RATE_ALL,Causal Historical Feature,float32,2920859,0,0.0,1415959,0.172,0.073,0.02,0.56
+H_GLOBAL_RATE_1D,Causal Historical Feature,float32,2920859,0,0.0,1693,0.181,0.080,0.02,0.63
+H_GLOBAL_RATE_7D,Causal Historical Feature,float32,2920859,0,0.0,1704,0.182,0.066,0.03,0.46

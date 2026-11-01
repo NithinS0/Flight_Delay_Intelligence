@@ -1,0 +1,934 @@
+{
+  "delay_descriptive": {
+    "count": 2920859,
+    "mean": 10.095738274254252,
+    "median": -2.0,
+    "mode_rounded_minutes": -5.0,
+    "std": 49.177657001952426,
+    "variance": 2418.44194820168,
+    "min": -90.0,
+    "max": 2966.0,
+    "q1": -6.0,
+    "q3": 6.0,
+    "iqr": 12.0,
+    "skewness": 11.490621215799301,
+    "kurtosis_excess": 243.94387582354136,
+    "tukey_lower_fence": -24.0,
+    "tukey_upper_fence": 24.0,
+    "n_outliers_upper": 390939,
+    "n_outliers_lower": 1189,
+    "pct_outliers": 13.425091728152575,
+    "pct_gt_60": 6.081738283155743,
+    "pct_gt_120": 2.383408442516397,
+    "pct_gt_300": 0.36345472342211654,
+    "p90": 36.0,
+    "p95": 72.0,
+    "p99": 191.0,
+    "pct_early_departures": 61.18405578632861
+  },
+  "class_distribution": {
+    "overall": {
+      "on_time": 2389826,
+      "delayed": 531033,
+      "delayed_pct": 18.180713276471067
+    },
+    "fit": {
+      "rows": 1784112,
+      "delayed": 280443,
+      "delayed_pct": 15.718912265597677,
+      "mean_delay": 8.009501645636597,
+      "median_delay": -3.0
+    },
+    "val": {
+      "rows": 504441,
+      "delayed": 110897,
+      "delayed_pct": 21.984136896088938,
+      "mean_delay": 13.03635905883939,
+      "median_delay": -1.0
+    },
+    "test": {
+      "rows": 632306,
+      "delayed": 139693,
+      "delayed_pct": 22.092626038658498,
+      "mean_delay": 13.636286861108388,
+      "median_delay": -1.0
+    }
+  },
+  "delay_bands": {
+    "Early (<0)": {
+      "count": 1787100,
+      "pct": 61.18405578632861
+    },
+    "On-time/minor (0-15)": {
+      "count": 602726,
+      "pct": 20.635230937200326
+    },
+    "Moderate (15-60)": {
+      "count": 350043,
+      "pct": 11.98424846937151
+    },
+    "High (60-120)": {
+      "count": 110362,
+      "pct": 3.7784090228251346
+    },
+    "Severe (>120)": {
+      "count": 70628,
+      "pct": 2.418055784274421
+    }
+  },
+  "diverted_retained": 7056,
+  "airlines": [
+    {
+      "AIRLINE": "JetBlue Airways",
+      "flights": 109805,
+      "mean_delay": 18.243000030517578,
+      "median_delay": -2.0,
+      "delayed_pct": 27.003
+    },
+    {
+      "AIRLINE": "Frontier Airlines Inc.",
+      "flights": 62800,
+      "mean_delay": 15.998000144958496,
+      "median_delay": -3.0,
+      "delayed_pct": 26.468
+    },
+    {
+      "AIRLINE": "Allegiant Air",
+      "flights": 50355,
+      "mean_delay": 13.904999732971191,
+      "median_delay": -3.0,
+      "delayed_pct": 23.732
+    },
+    {
+      "AIRLINE": "Southwest Airlines Co.",
+      "flights": 557005,
+      "mean_delay": 10.807999610900879,
+      "median_delay": 0.0,
+      "delayed_pct": 22.795
+    },
+    {
+      "AIRLINE": "Spirit Air Lines",
+      "flights": 93399,
+      "mean_delay": 12.954999923706055,
+      "median_delay": -2.0,
+      "delayed_pct": 21.572
+    },
+    {
+      "AIRLINE": "American Airlines Inc.",
+      "flights": 372199,
+      "mean_delay": 12.569000244140625,
+      "median_delay": -2.0,
+      "delayed_pct": 19.32
+    },
+    {
+      "AIRLINE": "United Air Lines Inc.",
+      "flights": 248968,
+      "mean_delay": 11.1850004196167,
+      "median_delay": -2.0,
+      "delayed_pct": 18.537
+    },
+    {
+      "AIRLINE": "ExpressJet Airlines LLC d/b/a aha!",
+      "flights": 18020,
+      "mean_delay": 12.77299976348877,
+      "median_delay": -5.0,
+      "delayed_pct": 18.246
+    },
+    {
+      "AIRLINE": "Mesa Airlines Inc.",
+      "flights": 62639,
+      "mean_delay": 12.227999687194824,
+      "median_delay": -3.0,
+      "delayed_pct": 17.349
+    },
+    {
+      "AIRLINE": "Alaska Airlines Inc.",
+      "flights": 98533,
+      "mean_delay": 4.623000144958496,
+      "median_delay": -4.0,
+      "delayed_pct": 15.954
+    },
+    {
+      "AIRLINE": "PSA Airlines Inc.",
+      "flights": 103749,
+      "mean_delay": 7.913000106811523,
+      "median_delay": -4.0,
+      "delayed_pct": 15.752
+    },
+    {
+      "AIRLINE": "Envoy Air",
+      "flights": 117623,
+      "mean_delay": 6.672999858856201,
+      "median_delay": -3.0,
+      "delayed_pct": 14.778
+    },
+    {
+      "AIRLINE": "SkyWest Airlines Inc.",
+      "flights": 335992,
+      "mean_delay": 9.442000389099121,
+      "median_delay": -3.0,
+      "delayed_pct": 14.561
+    },
+    {
+      "AIRLINE": "Delta Air Lines Inc.",
+      "flights": 389256,
+      "mean_delay": 8.097000122070312,
+      "median_delay": -2.0,
+      "delayed_pct": 14.498
+    },
+    {
+      "AIRLINE": "Hawaiian Airlines Inc.",
+      "flights": 31726,
+      "mean_delay": 5.085999965667725,
+      "median_delay": -2.0,
+      "delayed_pct": 14.219
+    },
+    {
+      "AIRLINE": "Republic Airline",
+      "flights": 138461,
+      "mean_delay": 5.743000030517578,
+      "median_delay": -5.0,
+      "delayed_pct": 13.267
+    },
+    {
+      "AIRLINE": "Horizon Air",
+      "flights": 20260,
+      "mean_delay": 4.803999900817871,
+      "median_delay": -3.0,
+      "delayed_pct": 12.794
+    },
+    {
+      "AIRLINE": "Endeavor Air Inc.",
+      "flights": 110069,
+      "mean_delay": 5.921000003814697,
+      "median_delay": -4.0,
+      "delayed_pct": 11.995
+    }
+  ],
+  "origin_airports_min5000": {
+    "n_airports": 91,
+    "top10_most_delayed": [
+      {
+        "ORIGIN": "MDW",
+        "flights": 33662,
+        "mean_delay": 13.789999961853027,
+        "median_delay": 2.0,
+        "delayed_pct": 27.366
+      },
+      {
+        "ORIGIN": "DAL",
+        "flights": 29645,
+        "mean_delay": 12.583999633789062,
+        "median_delay": 1.0,
+        "delayed_pct": 25.785
+      },
+      {
+        "ORIGIN": "BWI",
+        "flights": 39664,
+        "mean_delay": 12.880999565124512,
+        "median_delay": 0.0,
+        "delayed_pct": 25.003
+      },
+      {
+        "ORIGIN": "HOU",
+        "flights": 23526,
+        "mean_delay": 11.67199993133545,
+        "median_delay": 1.0,
+        "delayed_pct": 24.258
+      },
+      {
+        "ORIGIN": "EWR",
+        "flights": 50937,
+        "mean_delay": 15.994000434875488,
+        "median_delay": -2.0,
+        "delayed_pct": 24.242
+      },
+      {
+        "ORIGIN": "DEN",
+        "flights": 116656,
+        "mean_delay": 13.404000282287598,
+        "median_delay": 0.0,
+        "delayed_pct": 23.851
+      },
+      {
+        "ORIGIN": "MCO",
+        "flights": 62142,
+        "mean_delay": 14.541999816894531,
+        "median_delay": -1.0,
+        "delayed_pct": 23.686
+      },
+      {
+        "ORIGIN": "FLL",
+        "flights": 39190,
+        "mean_delay": 14.649999618530273,
+        "median_delay": -1.0,
+        "delayed_pct": 23.639
+      },
+      {
+        "ORIGIN": "LAS",
+        "flights": 71578,
+        "mean_delay": 12.14900016784668,
+        "median_delay": -1.0,
+        "delayed_pct": 22.909
+      },
+      {
+        "ORIGIN": "SJU",
+        "flights": 12768,
+        "mean_delay": 14.553000450134277,
+        "median_delay": -2.0,
+        "delayed_pct": 21.679
+      }
+    ],
+    "top10_most_punctual": [
+      {
+        "ORIGIN": "BOI",
+        "flights": 9972,
+        "mean_delay": 5.291999816894531,
+        "median_delay": -4.0,
+        "delayed_pct": 11.733
+      },
+      {
+        "ORIGIN": "ANC",
+        "flights": 8250,
+        "mean_delay": 2.4110000133514404,
+        "median_delay": -5.0,
+        "delayed_pct": 11.83
+      },
+      {
+        "ORIGIN": "LIH",
+        "flights": 5872,
+        "mean_delay": 3.7230000495910645,
+        "median_delay": -4.0,
+        "delayed_pct": 12.619
+      },
+      {
+        "ORIGIN": "GEG",
+        "flights": 7458,
+        "mean_delay": 6.565000057220459,
+        "median_delay": -3.0,
+        "delayed_pct": 13.154
+      },
+      {
+        "ORIGIN": "PDX",
+        "flights": 25328,
+        "mean_delay": 5.40500020980835,
+        "median_delay": -3.0,
+        "delayed_pct": 13.215
+      },
+      {
+        "ORIGIN": "KOA",
+        "flights": 6662,
+        "mean_delay": 3.6710000038146973,
+        "median_delay": -4.0,
+        "delayed_pct": 13.224
+      },
+      {
+        "ORIGIN": "DSM",
+        "flights": 6725,
+        "mean_delay": 7.324999809265137,
+        "median_delay": -4.0,
+        "delayed_pct": 13.546
+      },
+      {
+        "ORIGIN": "TYS",
+        "flights": 6172,
+        "mean_delay": 5.668000221252441,
+        "median_delay": -5.0,
+        "delayed_pct": 13.642
+      },
+      {
+        "ORIGIN": "TUS",
+        "flights": 7345,
+        "mean_delay": 7.0370001792907715,
+        "median_delay": -4.0,
+        "delayed_pct": 13.764
+      },
+      {
+        "ORIGIN": "MSP",
+        "flights": 59030,
+        "mean_delay": 7.800000190734863,
+        "median_delay": -2.0,
+        "delayed_pct": 13.868
+      }
+    ]
+  },
+  "routes_min1500": {
+    "n_routes": 348,
+    "top10_most_delayed": [
+      {
+        "ROUTE": "MCO_SJU",
+        "flights": 2578,
+        "mean_delay": 20.35099983215332,
+        "median_delay": 2.0,
+        "delayed_pct": 32.467
+      },
+      {
+        "ROUTE": "EWR_SFO",
+        "flights": 1799,
+        "mean_delay": 19.424999237060547,
+        "median_delay": 1.0,
+        "delayed_pct": 30.35
+      },
+      {
+        "ROUTE": "FLL_JFK",
+        "flights": 1711,
+        "mean_delay": 25.079999923706055,
+        "median_delay": 0.0,
+        "delayed_pct": 29.632
+      },
+      {
+        "ROUTE": "DEN_LGA",
+        "flights": 1740,
+        "mean_delay": 18.316999435424805,
+        "median_delay": 1.0,
+        "delayed_pct": 28.851
+      },
+      {
+        "ROUTE": "JFK_FLL",
+        "flights": 1811,
+        "mean_delay": 20.900999069213867,
+        "median_delay": 0.0,
+        "delayed_pct": 28.824
+      },
+      {
+        "ROUTE": "MCO_JFK",
+        "flights": 1912,
+        "mean_delay": 23.361000061035156,
+        "median_delay": -1.0,
+        "delayed_pct": 28.347
+      },
+      {
+        "ROUTE": "MCO_EWR",
+        "flights": 2760,
+        "mean_delay": 21.0310001373291,
+        "median_delay": -1.0,
+        "delayed_pct": 28.116
+      },
+      {
+        "ROUTE": "EWR_LAX",
+        "flights": 2003,
+        "mean_delay": 18.488000869750977,
+        "median_delay": 0.0,
+        "delayed_pct": 27.958
+      },
+      {
+        "ROUTE": "DFW_SFO",
+        "flights": 1592,
+        "mean_delay": 19.34000015258789,
+        "median_delay": 0.0,
+        "delayed_pct": 27.889
+      },
+      {
+        "ROUTE": "JFK_MCO",
+        "flights": 1841,
+        "mean_delay": 21.23699951171875,
+        "median_delay": 0.0,
+        "delayed_pct": 27.648
+      }
+    ],
+    "top10_most_punctual": [
+      {
+        "ROUTE": "RSW_ATL",
+        "flights": 1529,
+        "mean_delay": 1.2510000467300415,
+        "median_delay": -4.0,
+        "delayed_pct": 7.325
+      },
+      {
+        "ROUTE": "BOI_SEA",
+        "flights": 1843,
+        "mean_delay": 1.1039999723434448,
+        "median_delay": -4.0,
+        "delayed_pct": 8.953
+      },
+      {
+        "ROUTE": "PDX_SEA",
+        "flights": 2587,
+        "mean_delay": 1.8450000286102295,
+        "median_delay": -3.0,
+        "delayed_pct": 8.968
+      },
+      {
+        "ROUTE": "GSP_ATL",
+        "flights": 1520,
+        "mean_delay": 2.0769999027252197,
+        "median_delay": -4.0,
+        "delayed_pct": 9.276
+      },
+      {
+        "ROUTE": "ITO_HNL",
+        "flights": 2457,
+        "mean_delay": 1.8880000114440918,
+        "median_delay": -4.0,
+        "delayed_pct": 9.727
+      },
+      {
+        "ROUTE": "ANC_SEA",
+        "flights": 3135,
+        "mean_delay": 1.0290000438690186,
+        "median_delay": -5.0,
+        "delayed_pct": 10.207
+      },
+      {
+        "ROUTE": "RIC_ATL",
+        "flights": 1515,
+        "mean_delay": 6.013000011444092,
+        "median_delay": -3.0,
+        "delayed_pct": 10.561
+      },
+      {
+        "ROUTE": "JAX_ATL",
+        "flights": 1893,
+        "mean_delay": 5.388000011444092,
+        "median_delay": -3.0,
+        "delayed_pct": 10.882
+      },
+      {
+        "ROUTE": "HNL_OGG",
+        "flights": 4490,
+        "mean_delay": 3.190000057220459,
+        "median_delay": -2.0,
+        "delayed_pct": 10.913
+      },
+      {
+        "ROUTE": "PDX_LAX",
+        "flights": 1942,
+        "mean_delay": 5.613999843597412,
+        "median_delay": -4.0,
+        "delayed_pct": 11.02
+      }
+    ]
+  },
+  "monthly": [
+    {
+      "MONTH": 1,
+      "flights": 261355,
+      "mean_delay": 8.687999725341797,
+      "median_delay": -3.0,
+      "delayed_pct": 16.46
+    },
+    {
+      "MONTH": 2,
+      "flights": 241309,
+      "mean_delay": 9.79699993133545,
+      "median_delay": -2.0,
+      "delayed_pct": 17.612
+    },
+    {
+      "MONTH": 3,
+      "flights": 278359,
+      "mean_delay": 8.312000274658203,
+      "median_delay": -3.0,
+      "delayed_pct": 16.629
+    },
+    {
+      "MONTH": 4,
+      "flights": 236521,
+      "mean_delay": 9.571999549865723,
+      "median_delay": -3.0,
+      "delayed_pct": 17.839
+    },
+    {
+      "MONTH": 5,
+      "flights": 248189,
+      "mean_delay": 9.411999702453613,
+      "median_delay": -2.0,
+      "delayed_pct": 17.563
+    },
+    {
+      "MONTH": 6,
+      "flights": 255880,
+      "mean_delay": 15.005000114440918,
+      "median_delay": -1.0,
+      "delayed_pct": 23.345
+    },
+    {
+      "MONTH": 7,
+      "flights": 279871,
+      "mean_delay": 14.616000175476074,
+      "median_delay": -2.0,
+      "delayed_pct": 22.501
+    },
+    {
+      "MONTH": 8,
+      "flights": 281402,
+      "mean_delay": 11.812999725341797,
+      "median_delay": -2.0,
+      "delayed_pct": 19.912
+    },
+    {
+      "MONTH": 9,
+      "flights": 204273,
+      "mean_delay": 5.754000186920166,
+      "median_delay": -3.0,
+      "delayed_pct": 13.425
+    },
+    {
+      "MONTH": 10,
+      "flights": 214438,
+      "mean_delay": 7.306000232696533,
+      "median_delay": -3.0,
+      "delayed_pct": 15.483
+    },
+    {
+      "MONTH": 11,
+      "flights": 209271,
+      "mean_delay": 6.420000076293945,
+      "median_delay": -3.0,
+      "delayed_pct": 14.492
+    },
+    {
+      "MONTH": 12,
+      "flights": 209991,
+      "mean_delay": 12.380999565124512,
+      "median_delay": -2.0,
+      "delayed_pct": 20.835
+    }
+  ],
+  "yearly": [
+    {
+      "YEAR": 2019,
+      "flights": 744079,
+      "mean_delay": 10.784000396728516,
+      "median_delay": -2.0,
+      "delayed_pct": 18.637
+    },
+    {
+      "YEAR": 2020,
+      "flights": 450593,
+      "mean_delay": 2.0239999294281006,
+      "median_delay": -4.0,
+      "delayed_pct": 9.086
+    },
+    {
+      "YEAR": 2021,
+      "flights": 601101,
+      "mean_delay": 9.371999740600586,
+      "median_delay": -2.0,
+      "delayed_pct": 17.431
+    },
+    {
+      "YEAR": 2022,
+      "flights": 669411,
+      "mean_delay": 12.463000297546387,
+      "median_delay": -2.0,
+      "delayed_pct": 21.315
+    },
+    {
+      "YEAR": 2023,
+      "flights": 455675,
+      "mean_delay": 14.432000160217285,
+      "median_delay": -1.0,
+      "delayed_pct": 22.814
+    }
+  ],
+  "hourly": [
+    {
+      "SCHEDULED_HOUR": 0,
+      "flights": 5555,
+      "mean_delay": 11.126999855041504,
+      "median_delay": -2.0,
+      "delayed_pct": 21.386
+    },
+    {
+      "SCHEDULED_HOUR": 1,
+      "flights": 2009,
+      "mean_delay": 12.4350004196167,
+      "median_delay": -3.0,
+      "delayed_pct": 20.956
+    },
+    {
+      "SCHEDULED_HOUR": 2,
+      "flights": 710,
+      "mean_delay": 21.388999938964844,
+      "median_delay": -2.0,
+      "delayed_pct": 25.07
+    },
+    {
+      "SCHEDULED_HOUR": 3,
+      "flights": 508,
+      "mean_delay": 12.166999816894531,
+      "median_delay": -4.0,
+      "delayed_pct": 24.409
+    },
+    {
+      "SCHEDULED_HOUR": 4,
+      "flights": 314,
+      "mean_delay": 13.541000366210938,
+      "median_delay": -4.0,
+      "delayed_pct": 17.834
+    },
+    {
+      "SCHEDULED_HOUR": 5,
+      "flights": 62402,
+      "mean_delay": 3.812999963760376,
+      "median_delay": -3.0,
+      "delayed_pct": 7.25
+    },
+    {
+      "SCHEDULED_HOUR": 6,
+      "flights": 205161,
+      "mean_delay": 3.5799999237060547,
+      "median_delay": -4.0,
+      "delayed_pct": 7.487
+    },
+    {
+      "SCHEDULED_HOUR": 7,
+      "flights": 198850,
+      "mean_delay": 3.944999933242798,
+      "median_delay": -4.0,
+      "delayed_pct": 9.288
+    },
+    {
+      "SCHEDULED_HOUR": 8,
+      "flights": 202122,
+      "mean_delay": 4.683000087738037,
+      "median_delay": -3.0,
+      "delayed_pct": 10.897
+    },
+    {
+      "SCHEDULED_HOUR": 9,
+      "flights": 173429,
+      "mean_delay": 5.550000190734863,
+      "median_delay": -3.0,
+      "delayed_pct": 12.968
+    },
+    {
+      "SCHEDULED_HOUR": 10,
+      "flights": 187144,
+      "mean_delay": 6.7729997634887695,
+      "median_delay": -3.0,
+      "delayed_pct": 14.533
+    },
+    {
+      "SCHEDULED_HOUR": 11,
+      "flights": 185918,
+      "mean_delay": 7.519999980926514,
+      "median_delay": -2.0,
+      "delayed_pct": 15.507
+    },
+    {
+      "SCHEDULED_HOUR": 12,
+      "flights": 179548,
+      "mean_delay": 8.925999641418457,
+      "median_delay": -2.0,
+      "delayed_pct": 17.125
+    },
+    {
+      "SCHEDULED_HOUR": 13,
+      "flights": 176551,
+      "mean_delay": 10.246000289916992,
+      "median_delay": -2.0,
+      "delayed_pct": 18.738
+    },
+    {
+      "SCHEDULED_HOUR": 14,
+      "flights": 173351,
+      "mean_delay": 11.572999954223633,
+      "median_delay": -2.0,
+      "delayed_pct": 20.521
+    },
+    {
+      "SCHEDULED_HOUR": 15,
+      "flights": 174504,
+      "mean_delay": 12.491000175476074,
+      "median_delay": -1.0,
+      "delayed_pct": 21.795
+    },
+    {
+      "SCHEDULED_HOUR": 16,
+      "flights": 168692,
+      "mean_delay": 13.682999610900879,
+      "median_delay": -1.0,
+      "delayed_pct": 23.189
+    },
+    {
+      "SCHEDULED_HOUR": 17,
+      "flights": 183896,
+      "mean_delay": 14.376999855041504,
+      "median_delay": -1.0,
+      "delayed_pct": 23.651
+    },
+    {
+      "SCHEDULED_HOUR": 18,
+      "flights": 174207,
+      "mean_delay": 15.539999961853027,
+      "median_delay": -1.0,
+      "delayed_pct": 25.382
+    },
+    {
+      "SCHEDULED_HOUR": 19,
+      "flights": 154048,
+      "mean_delay": 16.952999114990234,
+      "median_delay": -1.0,
+      "delayed_pct": 27.221
+    },
+    {
+      "SCHEDULED_HOUR": 20,
+      "flights": 132702,
+      "mean_delay": 16.5939998626709,
+      "median_delay": -1.0,
+      "delayed_pct": 26.886
+    },
+    {
+      "SCHEDULED_HOUR": 21,
+      "flights": 89599,
+      "mean_delay": 17.055999755859375,
+      "median_delay": -1.0,
+      "delayed_pct": 28.289
+    },
+    {
+      "SCHEDULED_HOUR": 22,
+      "flights": 68172,
+      "mean_delay": 16.566999435424805,
+      "median_delay": -1.0,
+      "delayed_pct": 26.385
+    },
+    {
+      "SCHEDULED_HOUR": 23,
+      "flights": 21467,
+      "mean_delay": 14.727999687194824,
+      "median_delay": -1.0,
+      "delayed_pct": 23.082
+    }
+  ],
+  "day_of_week": [
+    {
+      "DAY_OF_WEEK": 0,
+      "flights": 434661,
+      "mean_delay": 10.567000389099121,
+      "median_delay": -2.0,
+      "delayed_pct": 18.497
+    },
+    {
+      "DAY_OF_WEEK": 1,
+      "flights": 406268,
+      "mean_delay": 7.96999979019165,
+      "median_delay": -3.0,
+      "delayed_pct": 16.05
+    },
+    {
+      "DAY_OF_WEEK": 2,
+      "flights": 411481,
+      "mean_delay": 8.416999816894531,
+      "median_delay": -3.0,
+      "delayed_pct": 16.511
+    },
+    {
+      "DAY_OF_WEEK": 3,
+      "flights": 434270,
+      "mean_delay": 10.765000343322754,
+      "median_delay": -2.0,
+      "delayed_pct": 18.851
+    },
+    {
+      "DAY_OF_WEEK": 4,
+      "flights": 434687,
+      "mean_delay": 11.36400032043457,
+      "median_delay": -2.0,
+      "delayed_pct": 19.757
+    },
+    {
+      "DAY_OF_WEEK": 5,
+      "flights": 374577,
+      "mean_delay": 10.163000106811523,
+      "median_delay": -2.0,
+      "delayed_pct": 17.967
+    },
+    {
+      "DAY_OF_WEEK": 6,
+      "flights": 424915,
+      "mean_delay": 11.229999542236328,
+      "median_delay": -2.0,
+      "delayed_pct": 19.401
+    }
+  ],
+  "day_part": [
+    {
+      "DAY_PART": "Afternoon",
+      "flights": 1056542,
+      "mean_delay": 11.878000259399414,
+      "median_delay": -2.0,
+      "delayed_pct": 20.827
+    },
+    {
+      "DAY_PART": "Evening",
+      "flights": 640195,
+      "mean_delay": 16.39299964904785,
+      "median_delay": -1.0,
+      "delayed_pct": 26.573
+    },
+    {
+      "DAY_PART": "Morning",
+      "flights": 1152624,
+      "mean_delay": 5.2870001792907715,
+      "median_delay": -3.0,
+      "delayed_pct": 11.658
+    },
+    {
+      "DAY_PART": "Night",
+      "flights": 71498,
+      "mean_delay": 4.900000095367432,
+      "median_delay": -3.0,
+      "delayed_pct": 9.079
+    }
+  ],
+  "weekend_vs_weekday": [
+    {
+      "IS_WEEKEND": 0,
+      "flights": 2121367,
+      "mean_delay": 9.857000350952148,
+      "median_delay": -2.0,
+      "delayed_pct": 17.974
+    },
+    {
+      "IS_WEEKEND": 1,
+      "flights": 799492,
+      "mean_delay": 10.729999542236328,
+      "median_delay": -2.0,
+      "delayed_pct": 18.729
+    }
+  ],
+  "correlation_with_dep_delay": {
+    "DELAYED": 0.5594,
+    "DISTANCE": 0.0221,
+    "CRS_ELAPSED_TIME": 0.0243,
+    "SCHEDULED_HOUR": 0.0928,
+    "DAY_OF_WEEK": 0.0134,
+    "MONTH": 0.0005,
+    "YEAR": 0.04,
+    "IS_WEEKEND": 0.0079,
+    "HOLIDAY_DIST": -0.0083
+  },
+  "correlation_with_delayed": {
+    "DEP_DELAY": 0.5594,
+    "DISTANCE": 0.0325,
+    "CRS_ELAPSED_TIME": 0.0318,
+    "SCHEDULED_HOUR": 0.1645,
+    "DAY_OF_WEEK": 0.0181,
+    "MONTH": 0.0022,
+    "YEAR": 0.061,
+    "IS_WEEKEND": 0.0087,
+    "HOLIDAY_DIST": -0.0091
+  },
+  "history_feature_correlation_with_delayed": {
+    "DEP_DELAY": 0.5594,
+    "H_AIRLINE_RATE_ALL": 0.1089,
+    "H_ORIGIN_RATE_30D": 0.1693,
+    "H_ROUTE_RATE_ALL": 0.1147,
+    "H_ORIGINHOUR_RATE_ALL": 0.1972,
+    "H_GLOBAL_RATE_1D": 0.1617,
+    "H_GLOBAL_RATE_7D": 0.1508,
+    "H_DEST_RATE_30D": 0.1539
+  },
+  "history_feature_correlation_with_dep_delay": {
+    "DELAYED": 0.5594,
+    "H_AIRLINE_RATE_ALL": 0.06,
+    "H_ORIGIN_RATE_30D": 0.11,
+    "H_ROUTE_RATE_ALL": 0.0711,
+    "H_ORIGINHOUR_RATE_ALL": 0.1135,
+    "H_GLOBAL_RATE_1D": 0.1159,
+    "H_GLOBAL_RATE_7D": 0.1065,
+    "H_DEST_RATE_30D": 0.1034
+  }
+}

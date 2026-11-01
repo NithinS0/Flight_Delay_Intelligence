@@ -1,0 +1,37 @@
+{
+  "model": "OLD Gradient Boosting Regressor",
+  "group": "original-replica",
+  "feature_set": "CORE",
+  "n_features": 12,
+  "encoding": "ohe",
+  "note": "hyper-parameters assumed = those of the original transformed GBR, without target transform",
+  "target_transform": "none",
+  "best_params": {},
+  "train_time_s": 6.5266194343566895,
+  "fit_rows_used": 100000,
+  "val": {
+    "mae": 20.60636860820288,
+    "mse": 2743.4059086778907,
+    "rmse": 52.377532479851425,
+    "r2": 0.001124717724712787,
+    "adj_r2": 0.0011009551592182643,
+    "median_ae": 11.071874141693115,
+    "explained_variance": 0.01256721331690469,
+    "max_error": 2961.4687938690186,
+    "mean_bias_error": -5.605957210630637
+  },
+  "refit_time_s": 6.705681562423706,
+  "refit_rows_used": 100000,
+  "test": {
+    "mae": 22.680198096508683,
+    "mse": 3165.9500237982143,
+    "rmse": 56.26677548783309,
+    "r2": 0.011288330525924262,
+    "adj_r2": 0.011269566218817029,
+    "median_ae": 13.49155330657959,
+    "explained_variance": 0.014255929936214162,
+    "max_error": 2929.6275815963745,
+    "mean_bias_error": -3.0826188910183867
+  },
+  "total_seconds": 23.867674350738525
+}

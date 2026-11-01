@@ -1,0 +1,37 @@
+{
+  "model": "OLD Linear Regression (Ridge)",
+  "group": "original-replica",
+  "feature_set": "CORE",
+  "n_features": 12,
+  "encoding": "ohe",
+  "note": "",
+  "target_transform": "none",
+  "best_params": {},
+  "train_time_s": 3.2638602256774902,
+  "fit_rows_used": 100000,
+  "val": {
+    "mae": 19.909135650071377,
+    "mse": 2759.3054823280886,
+    "rmse": 52.52909177139929,
+    "r2": -0.004664323943405435,
+    "adj_r2": -0.004688224226274906,
+    "median_ae": 9.756268501281738,
+    "explained_variance": 0.014940606062033068,
+    "max_error": 2969.163029909134,
+    "mean_bias_error": -7.337904405432429
+  },
+  "refit_time_s": 2.0705490112304688,
+  "refit_rows_used": 100000,
+  "test": {
+    "mae": 23.157039330463427,
+    "mse": 3163.045801567165,
+    "rmse": 56.240961954496875,
+    "r2": 0.012195305806329881,
+    "adj_r2": 0.012176558712292285,
+    "median_ae": 14.219059467315674,
+    "explained_variance": 0.013507481506824348,
+    "max_error": 2924.806296348572,
+    "mean_bias_error": -2.0498080435741985
+  },
+  "total_seconds": 11.45783281326294
+}

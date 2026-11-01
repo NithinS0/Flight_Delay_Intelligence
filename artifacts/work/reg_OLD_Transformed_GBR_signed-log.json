@@ -1,0 +1,37 @@
+{
+  "model": "OLD Transformed GBR (signed-log)",
+  "group": "original-replica",
+  "feature_set": "ADV",
+  "n_features": 16,
+  "encoding": "ohe",
+  "note": "",
+  "target_transform": "signed-log",
+  "best_params": {},
+  "train_time_s": 6.9865264892578125,
+  "fit_rows_used": 100000,
+  "val": {
+    "mae": 18.58212501185242,
+    "mse": 2922.3670555249228,
+    "rmse": 54.058922071429826,
+    "r2": -0.06403511353018398,
+    "adj_r2": -0.06406886402939982,
+    "median_ae": 5.536600589752197,
+    "explained_variance": 0.0019575456756401044,
+    "max_error": 2967.241603732109,
+    "mean_bias_error": -13.462856479972121
+  },
+  "refit_time_s": 6.7267022132873535,
+  "refit_rows_used": 100000,
+  "test": {
+    "mae": 19.3791626550638,
+    "mse": 3383.952828917108,
+    "rmse": 58.171752843773824,
+    "r2": -0.05679294548251557,
+    "adj_r2": -0.05681968750574806,
+    "median_ae": 5.90669060498476,
+    "explained_variance": 0.001757561041125899,
+    "max_error": 2938.8433852791786,
+    "mean_bias_error": -13.692492942473232
+  },
+  "total_seconds": 29.953917741775513
+}

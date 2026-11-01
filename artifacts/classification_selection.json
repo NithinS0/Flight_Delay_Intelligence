@@ -1,0 +1,230 @@
+{
+  "model": "Soft Voting Ensemble (XGB+LGB+HGB)",
+  "safe_name": "Soft_Voting_Ensemble_XGBplusLGBplusHGB",
+  "best_single_model": "Calibrated XGBoost (Isotonic)",
+  "best_single_safe_name": "Calibrated_XGBoost_Isotonic",
+  "threshold": 0.24064671993255615,
+  "feature_set": "HIST",
+  "best_params": {
+    "weights_xgb_lgb_hgb": [
+      0.55,
+      0.3,
+      0.15
+    ],
+    "calibration": "isotonic"
+  },
+  "val": {
+    "accuracy": 0.6741660570810065,
+    "precision": 0.358300249651495,
+    "recall": 0.6095566155982578,
+    "f1": 0.4513152623848311,
+    "specificity": 0.6923723903807453,
+    "balanced_accuracy": 0.6509645029895015,
+    "roc_auc": 0.7076950484292682,
+    "pr_auc": 0.4233369789712328,
+    "mcc": 0.2584205704975828,
+    "cohen_kappa": 0.24119193615243772,
+    "log_loss": 0.4783308510005158,
+    "confusion_matrix": [
+      [
+        272479,
+        121065
+      ],
+      [
+        43299,
+        67598
+      ]
+    ],
+    "threshold": 0.24064671993255615,
+    "predicted_delayed": 188663
+  },
+  "test": {
+    "accuracy": 0.6780119119540222,
+    "precision": 0.36308631077363457,
+    "recall": 0.606558667936117,
+    "f1": 0.45425522504483207,
+    "specificity": 0.6982743045758029,
+    "balanced_accuracy": 0.6524164862559599,
+    "roc_auc": 0.7077966332180781,
+    "pr_auc": 0.41260580335133024,
+    "mcc": 0.2620774259931164,
+    "cohen_kappa": 0.24579261031016109,
+    "log_loss": 0.48141140336216537,
+    "confusion_matrix": [
+      [
+        343979,
+        148634
+      ],
+      [
+        54961,
+        84732
+      ]
+    ],
+    "threshold": 0.24064671993255615,
+    "predicted_delayed": 233366
+  },
+  "test_default_threshold": {
+    "f1": 0.25771443159535695,
+    "precision": 0.5341814906552578,
+    "recall": 0.16982239625464413,
+    "accuracy": 0.7838752123180865,
+    "balanced_accuracy": 0.5639139853050863,
+    "confusion_matrix": [
+      [
+        471926,
+        20687
+      ],
+      [
+        115970,
+        23723
+      ]
+    ]
+  },
+  "train_time_s": 26.593344926834106,
+  "tuning": {
+    "method": "Validation simplex grid search on calibrated probabilities",
+    "best_val_pr_auc": 0.4233369789712328
+  },
+  "fit_rows_used": 250000,
+  "refit_rows_used": 250000,
+  "selection_rule": "highest validation delayed-class F1 (threshold optimised on validation); recall/precision/PR-AUC/MCC inspected as tie-breakers",
+  "runner_up": "Calibrated XGBoost (Isotonic)",
+  "runner_up_val_f1": 0.45106866288074343,
+  "failed_models": [],
+  "comparison_vs_old": {
+    "old_rf_default_predict_vs_new_best": {
+      "accuracy": {
+        "old": 0.5601196256243022,
+        "new": 0.6780119119540222,
+        "abs_change": 0.11789228632972004,
+        "pct_change": 21.047697837460845
+      },
+      "precision": {
+        "old": 0.29533749223900896,
+        "new": 0.36308631077363457,
+        "abs_change": 0.06774881853462561,
+        "pct_change": 22.93945750707406
+      },
+      "recall": {
+        "old": 0.7150823591733301,
+        "new": 0.606558667936117,
+        "abs_change": -0.10852369123721306,
+        "pct_change": -15.176390501741885
+      },
+      "f1": {
+        "old": 0.4180254978312406,
+        "new": 0.45425522504483207,
+        "abs_change": 0.03622972721359147,
+        "pct_change": 8.666870179344329
+      },
+      "specificity": {
+        "old": 0.4990144393266114,
+        "new": 0.6982743045758029,
+        "abs_change": 0.19925986524919148,
+        "pct_change": 39.93068126807716
+      },
+      "roc_auc": {
+        "old": 0.6673345532775825,
+        "new": 0.7077966332180781,
+        "abs_change": 0.040462079940495554,
+        "pct_change": 6.063237658198266
+      },
+      "pr_auc": {
+        "old": 0.3558382606882019,
+        "new": 0.41260580335133024,
+        "abs_change": 0.056767542663128334,
+        "pct_change": 15.953186864542953
+      },
+      "balanced_accuracy": {
+        "old": 0.6156291715803801,
+        "new": 0.6524164862559599,
+        "abs_change": 0.03678731467557983,
+        "pct_change": 5.97556392286337
+      },
+      "mcc": {
+        "old": 0.190198006238926,
+        "new": 0.2620774259931164,
+        "abs_change": 0.0718794197541904,
+        "pct_change": 37.791889187258754
+      },
+      "cohen_kappa": {
+        "old": 0.14846838489319314,
+        "new": 0.24579261031016109,
+        "abs_change": 0.09732422541696795,
+        "pct_change": 65.55215474794997
+      }
+    },
+    "old_rf_valthreshold_vs_new_best": {
+      "accuracy": {
+        "old": 0.5498239776310837,
+        "new": 0.6780119119540222,
+        "abs_change": 0.1281879343229385,
+        "pct_change": 23.314358692619436
+      },
+      "precision": {
+        "old": 0.292105051803068,
+        "new": 0.36308631077363457,
+        "abs_change": 0.07098125897056656,
+        "pct_change": 24.299908040762286
+      },
+      "recall": {
+        "old": 0.7289985897646983,
+        "new": 0.606558667936117,
+        "abs_change": -0.12243992182858132,
+        "pct_change": -16.795632192937674
+      },
+      "f1": {
+        "old": 0.41708630183833995,
+        "new": 0.45425522504483207,
+        "abs_change": 0.03716892320649212,
+        "pct_change": 8.911566513373188
+      },
+      "specificity": {
+        "old": 0.4990144393266114,
+        "new": 0.6982743045758029,
+        "abs_change": 0.19925986524919148,
+        "pct_change": 39.93068126807716
+      },
+      "roc_auc": {
+        "old": 0.6673345532775825,
+        "new": 0.7077966332180781,
+        "abs_change": 0.040462079940495554,
+        "pct_change": 6.063237658198266
+      },
+      "pr_auc": {
+        "old": 0.3558382606882019,
+        "new": 0.41260580335133024,
+        "abs_change": 0.056767542663128334,
+        "pct_change": 15.953186864542953
+      },
+      "balanced_accuracy": {
+        "old": 0.6140065145456548,
+        "new": 0.6524164862559599,
+        "abs_change": 0.038409971710305135,
+        "pct_change": 6.255629346005764
+      },
+      "mcc": {
+        "old": 0.190198006238926,
+        "new": 0.2620774259931164,
+        "abs_change": 0.0718794197541904,
+        "pct_change": 37.791889187258754
+      },
+      "cohen_kappa": {
+        "old": 0.14846838489319314,
+        "new": 0.24579261031016109,
+        "abs_change": 0.09732422541696795,
+        "pct_change": 65.55215474794997
+      }
+    },
+    "note": "OLD Random Forest = original-project RF configuration re-run on the full flight_data.csv (100k-row fit sample, CORE features). 'default_predict' mirrors the original operating mode; 'valthreshold' gives the old model the same threshold-optimisation as the new one.",
+    "original_project_reported_on_15k_sample": {
+      "source": "hard-coded in src/model_evaluation.py (benchmark_sample.csv, 3,241 test rows)",
+      "model": "Random Forest",
+      "accuracy_pct": 55.11,
+      "precision_pct": 29.3,
+      "recall_pct": 73.9,
+      "f1": 0.42,
+      "validation_f1": 0.415
+    }
+  }
+}

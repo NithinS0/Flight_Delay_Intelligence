@@ -1,0 +1,14 @@
+Loading D:\ISPA\flight_data.csv
+loaded (3000000, 32) 9s
+raw audit done 13s
+cleaned (2920859, 19) 18s
+{'test_start': '2022-09-26', 'val_start': '2021-12-25', 'fit_rows': 1784112, 'val_rows': 504441, 'test_rows': 632306, 'train_rows_fit_plus_val': 2288553, 'fit_date_range': ['2019-01-01', '2021-12-24'], 'val_date_range': ['2021-12-25', '2022-09-25'], 'test_date_range': ['2022-09-26', '2023-08-31'], 'original_project_split': {'train': 11744, 'test': 3241, 'validation': 2594, 'fit': 9150}}
+global priors done 39s
+  AIRLINE history features done 51s
+  ORIGIN history features done 61s
+  DEST history features done 70s
+  ROUTE history features done 81s
+  ORIGINHOUR history features done 88s
+  AIRLINEROUTE history features done 97s
+history feature count: 58
+saved D:\ISPA\data\processed\model_table.parquet (2920859, 85) total 128s

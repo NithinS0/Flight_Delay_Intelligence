@@ -1,0 +1,107 @@
+{
+  "model": "XGBoost (tuned)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ord",
+  "note": "",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "average_precision (PR-AUC)",
+    "n_iter": 4,
+    "tuning_rows": 60000,
+    "best_cv_pr_auc": 0.2587784414438223,
+    "seconds": 30.774449586868286,
+    "random_state": 42
+  },
+  "best_params": {
+    "colsample_bytree": 0.9754210836063001,
+    "learning_rate": 0.03003240545011427,
+    "max_depth": 7,
+    "min_child_weight": 25,
+    "n_estimators": 207,
+    "reg_lambda": 4.286139574719072,
+    "scale_pos_weight": 1.0,
+    "subsample": 0.7873687420594125
+  },
+  "train_time_s": 9.755528688430786,
+  "fit_rows_used": 250000,
+  "val": {
+    "accuracy": 0.6833960760525016,
+    "precision": 0.36443271767810026,
+    "recall": 0.591603019017647,
+    "f1": 0.4510281106275909,
+    "specificity": 0.7092624966966845,
+    "balanced_accuracy": 0.6504327578571658,
+    "roc_auc": 0.7068606677950732,
+    "pr_auc": 0.4212541834815914,
+    "mcc": 0.26008267139575875,
+    "cohen_kappa": 0.2458354747109296,
+    "log_loss": 0.4776128563753621,
+    "confusion_matrix": [
+      [
+        279126,
+        114418
+      ],
+      [
+        45290,
+        65607
+      ]
+    ],
+    "threshold": 0.2372169601513927,
+    "predicted_delayed": 180025
+  },
+  "val_default_threshold": {
+    "f1": 0.20138019916228955,
+    "precision": 0.5956032266643028,
+    "recall": 0.12117550519851754,
+    "accuracy": 0.7887106718129573
+  },
+  "refit_time_s": 9.832210779190063,
+  "refit_rows_used": 250000,
+  "test": {
+    "accuracy": 0.6827801728909737,
+    "precision": 0.36558508360229414,
+    "recall": 0.5927354985575513,
+    "f1": 0.4522395967032787,
+    "specificity": 0.7083146404987282,
+    "balanced_accuracy": 0.6505250695281397,
+    "roc_auc": 0.7067512904529706,
+    "pr_auc": 0.4106086118495657,
+    "mcc": 0.2604896147364555,
+    "cohen_kappa": 0.24624380159175785,
+    "log_loss": 0.48015639334340443,
+    "confusion_matrix": [
+      [
+        348925,
+        143688
+      ],
+      [
+        56892,
+        82801
+      ]
+    ],
+    "threshold": 0.2372169601513927,
+    "predicted_delayed": 226489
+  },
+  "test_default_threshold": {
+    "f1": 0.19307596985633735,
+    "precision": 0.5621072982116965,
+    "recall": 0.11655558975753975,
+    "accuracy": 0.7847640224827852,
+    "balanced_accuracy": 0.5454035913965232,
+    "confusion_matrix": [
+      [
+        479929,
+        12684
+      ],
+      [
+        123411,
+        16282
+      ]
+    ]
+  },
+  "test_best_possible_f1_oracle": null,
+  "total_seconds": 61.507291316986084
+}

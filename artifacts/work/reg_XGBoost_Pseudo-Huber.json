@@ -1,0 +1,55 @@
+{
+  "model": "XGBoost (Pseudo-Huber)",
+  "group": "improved",
+  "feature_set": "HIST",
+  "n_features": 74,
+  "encoding": "ord",
+  "note": "",
+  "target_transform": "none",
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "TimeSeriesSplit(n_splits=3)",
+    "scoring": "neg_mean_absolute_error",
+    "n_iter": 3,
+    "tuning_rows": 60000,
+    "best_cv_mae": 13.253614835054824,
+    "seconds": 14.63061785697937,
+    "random_state": 42
+  },
+  "best_params": {
+    "colsample_bytree": 0.6849356442713105,
+    "learning_rate": 0.03860031003418246,
+    "max_depth": 4,
+    "min_child_weight": 37,
+    "n_estimators": 207,
+    "reg_lambda": 4.286139574719072,
+    "subsample": 0.8295835055926347
+  },
+  "train_time_s": 5.96936821937561,
+  "fit_rows_used": 250000,
+  "val": {
+    "mae": 18.43499482610609,
+    "mse": 2756.207512352322,
+    "rmse": 52.49959535417699,
+    "r2": -0.0035363517303850234,
+    "adj_r2": -0.0036835894308406836,
+    "median_ae": 7.319021701812744,
+    "explained_variance": 0.026469215234197208,
+    "max_error": 2968.927800178528,
+    "mean_bias_error": -9.078002965773662
+  },
+  "refit_time_s": 6.210078477859497,
+  "refit_rows_used": 250000,
+  "test": {
+    "mae": 19.01750467726168,
+    "mse": 3217.2551892498263,
+    "rmse": 56.72085321334497,
+    "r2": -0.004734037295741622,
+    "adj_r2": -0.004851637221654492,
+    "median_ae": 6.894086837768555,
+    "explained_variance": 0.028233410605597364,
+    "max_error": 2940.9232206344604,
+    "mean_bias_error": -10.274480252194977
+  },
+  "total_seconds": 30.03662872314453
+}

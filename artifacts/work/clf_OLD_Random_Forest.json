@@ -1,0 +1,88 @@
+{
+  "model": "OLD Random Forest",
+  "group": "original-replica",
+  "feature_set": "CORE",
+  "n_features": 12,
+  "encoding": "ohe",
+  "note": "",
+  "best_params": {},
+  "train_time_s": 2.572894334793091,
+  "fit_rows_used": 100000,
+  "val": {
+    "accuracy": 0.6269989949270579,
+    "precision": 0.31784660071484483,
+    "recall": 0.6078342966897211,
+    "f1": 0.4174182821367863,
+    "specificity": 0.632399426747708,
+    "balanced_accuracy": 0.6201168617187145,
+    "roc_auc": 0.6708393530511002,
+    "pr_auc": 0.37191443184559936,
+    "mcc": 0.2015499197379966,
+    "cohen_kappa": 0.1809493620838658,
+    "log_loss": 0.6405238645707837,
+    "confusion_matrix": [
+      [
+        248877,
+        144667
+      ],
+      [
+        43490,
+        67407
+      ]
+    ],
+    "threshold": 0.4947298073533106,
+    "predicted_delayed": 212074
+  },
+  "val_default_threshold": {
+    "f1": 0.4165436124448658,
+    "precision": 0.32301188299817185,
+    "recall": 0.5863188363977384,
+    "accuracy": 0.6389052436261129
+  },
+  "refit_time_s": 2.369377374649048,
+  "refit_rows_used": 100000,
+  "test": {
+    "accuracy": 0.5498239776310837,
+    "precision": 0.292105051803068,
+    "recall": 0.7289985897646983,
+    "f1": 0.41708630183833995,
+    "specificity": 0.4990144393266114,
+    "balanced_accuracy": 0.6140065145456548,
+    "roc_auc": 0.6673345532775825,
+    "pr_auc": 0.3558382606882019,
+    "mcc": 0.190198006238926,
+    "cohen_kappa": 0.14846838489319314,
+    "log_loss": 0.6790600605295929,
+    "confusion_matrix": [
+      [
+        245821,
+        246792
+      ],
+      [
+        37857,
+        101836
+      ]
+    ],
+    "threshold": 0.4947298073533106,
+    "predicted_delayed": 348628
+  },
+  "test_default_threshold": {
+    "f1": 0.4180254978312406,
+    "precision": 0.29533749223900896,
+    "recall": 0.7150823591733301,
+    "accuracy": 0.5601196256243022,
+    "balanced_accuracy": 0.6156291715803801,
+    "confusion_matrix": [
+      [
+        254275,
+        238338
+      ],
+      [
+        39801,
+        99892
+      ]
+    ]
+  },
+  "test_best_possible_f1_oracle": null,
+  "total_seconds": 15.552926063537598
+}

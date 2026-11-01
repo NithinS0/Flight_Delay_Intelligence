@@ -1,0 +1,37 @@
+{
+  "model": "OLD Random Forest Regressor",
+  "group": "original-replica",
+  "feature_set": "CORE",
+  "n_features": 12,
+  "encoding": "ohe",
+  "note": "",
+  "target_transform": "none",
+  "best_params": {},
+  "train_time_s": 95.76132345199585,
+  "fit_rows_used": 100000,
+  "val": {
+    "mae": 21.145248874204803,
+    "mse": 2852.619677845852,
+    "rmse": 53.40992115558543,
+    "r2": -0.03864006303956313,
+    "adj_r2": -0.03866477158222237,
+    "median_ae": 10.023370742797852,
+    "explained_variance": -0.03005534904467022,
+    "max_error": 2963.7148518562317,
+    "mean_bias_error": -4.855705257755365
+  },
+  "refit_time_s": 76.59950017929077,
+  "refit_rows_used": 100000,
+  "test": {
+    "mae": 23.2535476909726,
+    "mse": 3254.3670212189263,
+    "rmse": 57.047059707042976,
+    "r2": -0.016323892178981225,
+    "adj_r2": -0.016343180525849155,
+    "median_ae": 13.423446655273438,
+    "explained_variance": -0.01531508357953748,
+    "max_error": 2934.8840787410736,
+    "mean_bias_error": -1.7973041839973638
+  },
+  "total_seconds": 182.3628866672516
+}
